@@ -2,6 +2,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv
+from langchain_core.runnables import RunnablePassthrough
 
 # 환경 변수 로드
 load_dotenv()
@@ -20,7 +21,7 @@ def setup_translation_chain():
             # Instructions:
             - Translate the text from {source_lang} to {target_lang}.
             - Ensure the translation is contextually accurate.
-            - Just return the translated result only.
+            - Just return the translated result only in {target_lang}.
             """),
             ("human", "Text: {text}")
         ]
@@ -33,8 +34,8 @@ def setup_translation_chain():
     chain = (
             {
                 "text": lambda x: x["text"],  # 올바른 lambda 구문
-                "source_lang": lambda x: x.get("source_lang", "ko"),  # 기본값 "ko"
-                "target_lang": lambda x: x.get("target_lang", "en"),  # 기본값 "en"
+                "source_lang": lambda x: x.get("source_lang"),  # 기본값 "ko"
+                "target_lang": lambda x: x.get("target_lang"),  # 기본값 "en"
             }
             | prompt
             | llm

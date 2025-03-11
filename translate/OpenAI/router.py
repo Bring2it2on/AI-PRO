@@ -1,22 +1,14 @@
-import re
-from pydantic import BaseModel, Field
+
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 from translate.OpenAI.translate_service import setup_translation_chain
+from schemas.translate_schema import TranslateRequest, TranslateResponse
 import logging
 
 logger = logging.getLogger(__name__)
 translate_router = APIRouter(prefix="/translate")
 
-class TranslateRequest(BaseModel):
-    text: str
-    source_lang: str
-    target_lang: str
-
-class TranslateResponse(BaseModel):
-    answer: str
-    
-@translate_router.post("/OpenAI")
+@translate_router.post("/OpenAI", tags=["Text-Translation"])
 async def translate(request: TranslateRequest):
 
     try:
@@ -25,14 +17,14 @@ async def translate(request: TranslateRequest):
         chain = setup_translation_chain()
 
         response = chain.invoke({
-            "src_lang": request.source_lang,
+            "source_lang": request.source_lang,
             "text": request.text,
-            "target_language": request.target_lang,
+            "target_lang": request.target_lang,
         })
 
         print("✅ Response : ",response)
 
-        return JSONResponse(content={"answer" : response} )
+        return TranslateResponse(answer=response)
     
     except Exception as e:
         logging.error(f"Translation error: {str(e)}")

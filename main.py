@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from schemas.translate_schema import LangDetectRequest, LangDetectResponse
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -35,3 +36,9 @@ import logging
 logger = LoggerSingleton.get_logger(
     logger_name="main", level=logging.INFO
 )
+
+from langDetect.detector import lang_detector
+
+@app.post("/lang_detect", tags=["언어감지"])
+async def language_detect(request: LangDetectRequest):
+    return lang_detector(request.INPUT_TEXT)
