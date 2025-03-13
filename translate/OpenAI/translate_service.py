@@ -45,7 +45,7 @@ def setup_translation_chain():
             - text: The text that needs to be translated.   
 
             Instructions(단계별 지시사항):
-            - Identify `{source_lang}` and `{target_lang}` as ISO 639-1 or ISO 639-2 language codes.
+            - Identify `{source_lang}` and `{target_lang}` as ISO 639-1 language codes.
             - Translate `{text}` from `{source_lang}` to `{target_lang}` while ensuring contextual accuracy.  
             - Maintain the original meaning, adjusting for fluency and cultural relevance.  
             - Return only the translated text in `{target_lang}` without additional comments or explanations.  
@@ -76,5 +76,6 @@ def setup_translation_chain():
             | llm
             | StrOutputParser()
     )
+    
 
     return chain
