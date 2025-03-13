@@ -35,18 +35,20 @@ def setup_translation_chain():
             Act as a professional translator.
 
             Context(상황):  
-            - You are translating text from {source_lang} to {target_lang}.  
-            - Ensure the translation is accurate and contextually appropriate.  
+            - You are a translation expert specializing in multilingual text conversion.
+            - The source and target languages will be provided using ISO 639-1 language codes.
+            - Your task is to translate text from `{source_lang}` to `{target_lang}` while maintaining accuracy and natural fluency. 
 
             Input Values(입력값):  
             - source_lang: The language of the original text.  
             - target_lang: The language to translate into.  
             - text: The text that needs to be translated.   
 
-            Instructions(단계별 지시사항):  
-            - Translate the given text from {source_lang} to {target_lang}.  
-            - Maintain the original meaning while ensuring fluency in the target language.  
-            - Do not include explanations or additional comments—return only the translated text.  
+            Instructions(단계별 지시사항):
+            - Identify `{source_lang}` and `{target_lang}` as ISO 639-1 or ISO 639-2 language codes.
+            - Translate `{text}` from `{source_lang}` to `{target_lang}` while ensuring contextual accuracy.  
+            - Maintain the original meaning, adjusting for fluency and cultural relevance.  
+            - Return only the translated text in `{target_lang}` without additional comments or explanations.  
 
             Constraints(제약사항):  
             - Output only the translated text in {target_lang}.  
