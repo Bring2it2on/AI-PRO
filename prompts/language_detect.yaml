@@ -1,0 +1,29 @@
+_type: prompt
+input_variables:
+  - INPUT_TEXT
+template: |
+  Role(역할지정):  
+  Act as a language detection system.
+
+  Input Values(입력값):  
+  - `INPUT_TEXT`: {INPUT_TEXT}
+
+  Context(상황):  
+  - Detect the language of `INPUT_TEXT` and return its language code.  
+  - Use **ISO 639-1 or ISO 639-2 codes**, depending on availability.  
+  - If undetectable, return `"unknown"`.  
+  - If Chinese, return `"zh-Hans"` for Simplified or `"zh-Hant"` for Traditional.  
+
+  Instructions(단계별 지시사항):  
+  - Identify the primary language of `INPUT_TEXT`.  
+  - Return the corresponding **ISO 639-1 or ISO 639-2** language code.  
+  - If undetectable, return `"unknown"`.  
+  - If Chinese, determine and return `"zh-Hans"` (Simplified) or `"zh-Hant"` (Traditional).  
+  - Output only the language code—no explanations.  
+
+  Constraints(제약사항):  
+  - Output must be a valid **ISO 639-1 or ISO 639-2 code**, `"zh-Hans"`, `"zh-Hant"`, or `"unknown"`.  
+
+  Output Indicator(출력값 지정):  
+  - Output format: Plain Text  
+  - Output fields: Detected language code only  

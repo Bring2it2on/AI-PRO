@@ -14,16 +14,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# LangSmith 로깅
-from langchain_teddynote import logging
-logging.langsmith("AI-Translation")
+# # LangSmith 로깅
+# from langchain_teddynote import logging
+# logging.langsmith("AI-Translation")
 
 # 라우터
 from translate.OpenAI.router import translate_router
+from ai_docs.router import document_router
 
 # 라우터 등록
 routers = [
-    translate_router
+    translate_router,
+    document_router
 ]
 
 for router in routers:
@@ -37,8 +39,8 @@ logger = LoggerSingleton.get_logger(
     logger_name="main", level=logging.INFO
 )
 
-from langDetect.detector import lang_detector
+from langDetect.detector import lang_detector, lang_detector2
 
 @app.post("/lang_detect", tags=["언어감지"])
 async def language_detect(request: LangDetectRequest):
-    return lang_detector(request.INPUT_TEXT)
+    return await lang_detector2(request.INPUT_TEXT)
