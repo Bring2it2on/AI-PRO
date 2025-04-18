@@ -1,0 +1,3893 @@
+
+
+<!-- <div class="ipetlogo"><a href="/chat/text.htm"><img src="/imageup/baseconimg/thumb_image/asetec.png" alt=""></a></div> -->
+<style>
+	.ipetlogo{position: absolute;width: 161px;left: 0;top: 12px;}
+	.ipetlogo a{display: flex;width: 100%;align-items: center;justify-content: center;overflow: hidden;}
+	.ipetlogo img{width: 120px;padding-top: 10px;}
+	.ipetheader{position: absolute;display: none;}
+	.ipetleft{/*padding-top: 80px;*/padding-top: 12px;}
+</style><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>관리자 사이트</title>
+<link rel="stylesheet" href="http://">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<script language="javascript" src="/js/jquery-1.8.3.min.js"></script>
+<script language="javascript" src="/lib/js/rollover.js"></script>
+<style type="text/css">
+	td {font-size: 9pt ; color: #333333}
+	A:link { color: #333333; font-size: 9pt; text-decoration: none;}
+	A:visited { color: #333333; font-size: 9pt; text-decoration: none; }
+	A:hover { color: #0066CC; font-size: 9pt; text-decoration:underline; }
+	.copyright { color: #333333; font-size: 8pt}
+	.buttonStyle { font-size:12px; } /* 각 페이지의 버튼 style */
+	.td_none_bottom	{BORDER-RIGHT: #9AB6E4 1px solid; BORDER-TOP: #9AB6E4 1px solid; BORDER-LEFT: #9AB6E4 1px solid; BORDER-BOTTOM: #9AB6E4 0px solid}
+	.td_none_top	{BORDER-RIGHT: #9AB6E4 1px solid; BORDER-TOP: #9AB6E4 0px solid; BORDER-LEFT: #9AB6E4 1px solid; BORDER-BOTTOM: #9AB6E4 1px solid}
+	.td_view_all		{BORDER-RIGHT: #9AB6E4 1px solid; BORDER-TOP: #9AB6E4 1px solid; BORDER-LEFT: #9AB6E4 1px solid; BORDER-BOTTOM: #9AB6E4 1px solid}
+
+</style>
+
+<link rel="stylesheet" href="/~AsaProgram_chatty/library/css/app.css">
+
+<script>
+jQuery(document).ready(function(){
+    jQuery('.ipetleft td[height="20"][align="center"]').addClass("ipetleftTitle");
+	jQuery(".sp_nav").click(function(e){
+		if(jQuery(this).hasClass("sp_nav_se")){
+			jQuery(this).removeClass("sp_nav_se");
+			jQuery(".ipetleft").animate({left:"-100%"},300);
+		}else{
+			jQuery(".ipetleft").animate({left:"0"},300);
+			jQuery(this).addClass("sp_nav_se");
+		}
+	});
+});
+</script>
+<script>
+	function logoutThis()
+	{
+		var result = confirm('로그아웃하시겠습니까?');
+		if (result) {
+			location.replace('/AsaProMember/logout.php?action=asmUserLogOut')
+		}
+		return;
+	}
+
+
+
+/*function GetKeyStroke(KeyStroke) {
+    var evt = KeyStroke || window.event;
+    var eventChooser = evt.keyCode;
+
+    var target = evt.target || evt.srcElement;
+
+    while(target && target.tagName.toLowerCase() != 'input' &&
+        target.tagName.toLowerCase() != 'textarea') {
+        target = target.parentElement;
+    }
+
+    if (!target) {
+        var which = String.fromCharCode(eventChooser).toLowerCase();
+        for (var i in key) {
+            if (which == i) {
+                document.location.href = key[i];
+            }
+        }
+    }
+}
+document.onkeyup = GetKeyStroke;*/
+
+</script>
+
+<script language='javascript'>
+var divName = 'sub_';
+var divs = new Array('none', 'asapro');
+function viewLayer(layerCode) {
+	var idname = eval(divName + layerCode);
+	allLayerClose();
+	idname.style.display = 'block';
+}
+
+function allLayerClose() {
+	for(i = 0;i < divs.length;i++) {
+		var idname = eval(divName + divs[i]);
+		idname.style.display = 'none';
+	}
+}
+
+function defaultLayer() {
+	var idname = eval(divName + divs[0]);
+	allLayerClose();
+	idname.style.display = 'block';
+}
+</script>
+
+
+</head>
+<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 >
+<div class="sp_nav"> <span></span> <span></span> <span></span> </div>
+<table width=100% cellpadding=0 cellspacing=0 border=0 class="ipetheader">
+<tr>
+	<td height=60 width="100%" >
+	<div class="widthScroll">
+		<table border="0" cellspacing="0" cellpadding="0" align="left">
+		<tr>
+						<td align="center" valign="middle"><a href="/work/apply/apply_list.htm"><img src="/imageup/baseconimg/thumb_image/130337794774.gif" border="0"></a></td>
+						<td><img src='/image/spacer.gif' width='14' height='60'></td>
+			<td><img src='/image/00.gif' width='14' height='60'></td>
+						<td background="/image/awi_asadalbg_03.gif"><a href="/work/apply/apply_list.htm" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('Image1','','/~AsaProgram_chatty/asapro2/admin/image/ko/18_.gif',1);"><img src="/~AsaProgram_chatty/asapro2/admin/image/ko/18.gif"   border="0" name="Image1"></a></td>
+									<!-- 이웃관리 위치 -->
+												<!-- 사이트관리 위치 -->
+			
+
+						
+			<!-- 웹메일 위치 -->
+			
+			
+			<td background="/~AsaProgram_chatty/asapro2/admin/image/awi_asadalbg_03a.gif"><a href="/chat/" onMouseOut="MM_swapImgRestore();" 
+			onMouseOver="MM_swapImage('Image9','','/~AsaProgram_chatty/asapro2/admin/image/2024_chat.gif',1);">
+			<img src="/~AsaProgram_chatty/asapro2/admin/image/2024_chat.gif"   border="0" name="Image9"></a></td>
+			
+			<td background="/image/awi_asadalbg_03.gif"><a href="/member/manage/info/list.htm" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('Image2','','/~AsaProgram_chatty/asapro2/admin/image/ko/19_.gif',1);"><img src="/~AsaProgram_chatty/asapro2/admin/image/ko/19.gif"   border="0" name="Image2"></a></td>
+
+			<td align="right" background="/image/awi_asadalbg_03.gif"><a href="/setup/admin/manage/list.htm" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('Image13','','/~AsaProgram_chatty/asapro2/admin/image/ko/21_.gif',1);"><img src="/~AsaProgram_chatty/asapro2/admin/image/ko/21.gif" border="0" name="Image13" ></a></td>
+			<td><img src='/image/99.gif' width='14' height='60'></td>
+		</tr>
+		</table></div>
+
+		<script language='javascript'>
+		<!--
+		function AsaProTopmenu_show_layer(div_name) {
+			var layer_fr = eval("document.all."+div_name);
+			layer_fr.style.visibility = "visible";
+		}
+
+		function AsaProTopmenu_hidden_layer(div_name) {
+			var layer_fr = eval("document.all."+div_name);
+			layer_fr.style.visibility = "hidden";
+		}
+		function AsaProTopmenu_out_layer() {
+			document.all.AsaProTopmenuLayer1.style.visibility = "hidden";
+		}
+		//-->
+		</script>
+	</td>
+</tr>
+<tr>
+	<td>
+		<table border=0 align='right' cellpadding=0 cellspacing=0 id='AsaProTopmenuLayer1' width='98%' style='position:absolute; visibility:hidden;'>
+		<tr height="16" onmouseover='AsaProTopmenu_show_layer("AsaProTopmenuLayer1")' onMouseOut="AsaProTopmenu_out_layer()">
+			<td width='100%'></td>
+			<td align='right'><nobr><img src='/~AsaProgram_chatty/asapro/image/subTitleIcon01.gif' align='absmiddle'><a href='/mailAdmin/'>메일</a></nobr></td>
+			<td align='right'><nobr><img src='/~AsaProgram_chatty/asapro/image/subTitleIcon01.gif' align='absmiddle'><a href='/boardAdmin/'>게시판</a></nobr></td>
+			<td align='right'><nobr><img src='/~AsaProgram_chatty/asapro/image/subTitleIcon01.gif' align='absmiddle'><a href='/setup/'>초기환경</a></nobr></td>
+			<td align='right'><nobr><img src='/~AsaProgram_chatty/asapro/image/subTitleIcon01.gif' align='absmiddle'><a href='/rightAdmin/'>관리자권한</a></nobr></td>
+		</tr>
+		<tr> 
+			<td colspan="5" height='16' onmouseover='AsaProTopmenu_show_layer("AsaProTopmenuLayer1")' onMouseOut='AsaProTopmenu_out_layer()'>
+			</td>
+		</tr>
+		</table>
+
+		<table border='0' cellpadding='0' cellspacing='0' id='sub_none' style='position:absolute; display:none;'>
+		<tr>
+			<td></td>
+		</tr>
+		</table>
+
+		
+		<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td height='5'></td>
+		</tr>
+		</table>
+			</td></tr>
+</table>
+<style>
+	.hanTop{background: #deedd0;padding: 5px 15px;display: flex;align-items: center;}
+	.hanTop h3{margin: 0;margin-right: 100px;}
+	.hanTop > *{margin-right: 100px;font-size: 14px;}
+	.hanTop div > a{color: #0f63bd;font-size: 14px;}
+	.hanTop div > a:hover{text-shadow: 0 0 1px #0f63bd;}
+</style>
+<div class="hanTop">
+	<h3>AI 프로 개발 계정</h3>
+	<div><a href="#n" onclick="configreload();">https://dev.han.kr</a></div>
+	<div>AI로 만들어가는 프로들의 세상</div>
+</div>
+<script>
+function configreload() {
+	event.preventDefault();
+	location.reload();
+}
+</script>
+<script>
+jQuery(document).ready(function(){
+		if (jQuery('form[name="limitfrm"]').length || jQuery('select[name="limit_num"]').length) {  
+			jQuery('form[name="limitfrm"]').addClass('limitfrm');  
+			jQuery('select[name="limit_num"]').addClass('limitfrm');  
+		}  
+	var currentPath = window.location.pathname;
+	if (currentPath === '/chat/config_chat.htm') {  
+		jQuery(".study-box1 > .rt").addClass("previewBox");
+	}else if(currentPath === '/chat/chat_list.htm'){
+		jQuery("#chatbot-list").addClass("chatbot-list");
+	}
+	else if(currentPath === '/chat/chat_modify.htm' || currentPath === '/chat/chat_add.htm'){
+		jQuery(".chatbro-m").addClass("tableRespon");
+		jQuery("form").addClass("tableForm");
+		var lastTableRespon = jQuery(".tableForm .tableRespon").last();
+			if (lastTableRespon.length) {  
+				lastTableRespon.addClass("txtRespon");  
+			} 
+	}else if(currentPath === '/member/manage/info/list.htm' || currentPath === '/member/manage/info/wait.htm' || currentPath === '/member/manage/info/stop.htm' || currentPath === '/member/manage/info/out.htm' || currentPath === '/setup/admin/manage/list.htm' || currentPath === '/setup/admin/manage/out.htm' || currentPath === '/setup/admin/manage/wait.htm' || currentPath === '/setup/default/config/rights.htm' || currentPath === '/setup/admin/manage/setup.htm' || currentPath === '/setup/admin/manage/ip.htm'){
+			jQuery(window).on("load", function() {  
+				jQuery('.resOftableNews').find("td").each(function() {  
+					var cellValue = jQuery(this).text().trim();
+					if (cellValue === "해당하는 내용이 없습니다.") {  
+						jQuery(this).css({'width': '100%', "justify-content": "center"});  
+					}  
+				});  
+				// 초기 로드 시 로직 처리  
+				if (window.innerWidth <= 1024) {  
+					addHeaderToCells();  
+					if(jQuery(".resOftableNews tbody tr:first-child").find("td").hasClass("asmFieldText_list")){
+						jQuery(".asmFieldText_list").parent("tr").css({display: "none"});
+					}
+				} else {  
+					removeHeaderFromCells();  
+					if(jQuery(".resOftableNews tbody tr:first-child").find("td").hasClass("asmFieldText_list")){
+						jQuery(".asmFieldText_list").parent("tr").css({display: "table-row"});
+					}
+				}  
+			});  
+
+			// 창 크기 조정 시 로직 처리  
+			jQuery(window).on("resize", function() {  
+				if (window.innerWidth <= 1024) {  
+					// 헤더가 추가되지 않았을 때만 헤더 추가  
+					if (!jQuery(".resOftableNews tr").first().find('td').first().data('headerAdded')) {  
+						addHeaderToCells();  
+					}  
+					if(jQuery(".resOftableNews tbody tr:first-child").find("td").hasClass("asmFieldText_list")){
+						jQuery(".asmFieldText_list").parent("tr").css({display: "none"});
+					}
+				} else {  
+					removeHeaderFromCells();  
+					if(jQuery(".resOftableNews tbody tr:first-child").find("td").hasClass("asmFieldText_list")){
+						jQuery(".asmFieldText_list").parent("tr").css({display: "table-row"});
+					}
+				}  
+			});  
+
+			// 셀에 헤더 추가하는 함수  
+			function addHeaderToCells() {  
+				// 헤더의 값을 가져와 배열에 저장  
+				var headerValues = [];  
+				jQuery(".resOftableNews .asmFieldText_list").each(function(index) {  
+					if (index > 0) { // 첫 번째 체크박스 셀을 건너뜀  
+							var imgElement = jQuery(this).find('img'); 
+
+							if (imgElement.length) {  
+								var imgSrc = imgElement.attr('src');
+								headerValues.push(`<img src="jQuery{imgSrc}" alt="">`); 
+							} else {  
+								headerValues.push(jQuery(this).text().trim());  
+							}
+					}  
+				});  
+
+				// 각 행의 asmGText_list를 반복하며 해당 헤더 값을 삽입  
+				jQuery(".resOftableNews tr").slice(1).each(function() { // 두 번째 행부터 반복  
+					jQuery(this).find('td').each(function(index) {  
+						if (index > 0 && index < headerValues.length + 1) { // 첫 번째 체크박스를 건너뛰고, 인덱스가 범위 내에 있는지 확인  
+							var currentValue = jQuery(this).html(); // 현재 셀의 값 가져오기  
+							jQuery(this).data('originalValue', currentValue); // 원래 값 저장  
+							
+							// 헤더 값을 포함하여 텍스트 설정 (헤더를 굵게 처리)  
+							jQuery(this).html('<strong>' + headerValues[index - 1] + ':</strong> ' + currentValue); // 해당 헤더 값을 삽입  
+						}  
+					});  
+				});  
+
+				// 헤더가 추가되었음을 표시  
+				jQuery(".resOftableNews tr").first().find('td').first().data('headerAdded', true);  
+			}  
+
+			// 셀에서 헤더 내용을 삭제하는 함수  
+			function removeHeaderFromCells() {  
+				// 헤더 내용 삭제를 보장하기 위해 모든 헤더 정보를 삭제  
+				jQuery(".resOftableNews tr").slice(1).each(function() { // 두 번째 행부터 반복  
+					jQuery(this).find('td').each(function(index) {  
+						if (index > 0) { // 첫 번째 체크박스를 건너뛰고  
+							var cellText = jQuery(this).text(); // 현재 셀의 값 가져오기  
+							// 헤더 정보를 삭제하는 정규 표현식  
+								if (/[\u4e00-\u9fa5\uac00-\ud7ff]/.test(cellText)) {  
+									jQuery(this).text(cellText.replace(/^[^:]*:\s*/, ''));   
+								}  
+						}  
+					});  
+				});  
+
+				// 헤더가 삭제되었음을 표시  
+				jQuery(".resOftableNews tr").first().find('td').first().data('headerAdded', false);  
+			}
+	}
+});
+</script>
+<table width=100% cellpadding=0 cellspacing=0 border=0>
+<tr>
+	<td valign="top">
+		<table width=100% cellpadding=0 cellspacing=0 border=0 class="mAlls">
+		<tr>
+			<td width=161 valign="top" class="ipetleft">
+			    			<script language="javascript">
+			function findObj(theObj, theDoc){//배열 형식inout name을 처리하기위하여
+				var p, i, foundObj;
+				if(!theDoc) theDoc = document;
+
+				if((p = theObj.indexOf("?")) > 0 && parent.frames.length){
+					theDoc = parent.frames[theObj.substring(p+1)].document;
+					theObj = theObj.substring(0,p); 
+				}
+				if(!(foundObj = theDoc[theObj]) && theDoc.all) 
+					foundObj = theDoc.all[theObj]; 
+
+				for (i=0; !foundObj && i < theDoc.forms.length; i++)
+					foundObj = theDoc.forms[i][theObj];
+
+				for(i=0; !foundObj && theDoc.layers && i < theDoc.layers.length; i++)
+					foundObj = findObj(theObj,theDoc.layers[i].document);
+
+				if(!foundObj && document.getElementById) 
+					foundObj = document.getElementById(theObj);
+
+				return foundObj;
+			}
+
+			function image_upload_resize_check(form_name, input_name){
+
+				if(typeof(form_name) == "string"){
+					var obj = findObj(input_name,eval("document."+form_name));
+				}else{
+					var obj = findObj(input_name,"");
+				}
+				var text_value = obj.value;
+				if(obj.value != ""){
+					if(/\.jpg$|.gif$|.GIF|.JPG$|.png|.PNG/.test(text_value)){
+						return true;
+					}else{
+						alert("이미지 파일만 올릴 수 있습니다.");
+						if(obj.attachEvent){
+							obj.outerHTML = obj.outerHTML;
+							//obj.attachEvent("onchange",new Function("image_upload_resize_check('"+form_name+"','"+input_name+"')")); 
+						}else{
+							obj.value='';
+							//obj.addEventListener("change",new Function("image_upload_resize_check('"+form_name+"','"+input_name+"')")); 
+						}
+						return false;
+					}
+				}
+			}
+
+			function image_upload_resize_check2(input_id){//아이디를 사용하여 이미지파일인지 체크
+				image_upload_resize_check(document.getElementById(input_id).form.name, document.getElementById(input_id).name);
+			}
+			</script><script type="text/javascript">
+function logOut()
+{
+	location.href = '/member/logout.php?action=asmUserLogOut&bn=';
+}
+	function msn_on(msn_url){
+			if(msn_url ==undefined){
+				alert('도메인을 입력해주세요');
+				}
+			}
+
+/*	function msn_ope(msn_url,m_url,mnum){
+		$.get('~AsaProgram/module/adminmanage/php/pop.php',{'msn_url' : msn_url , 'm_url' : m_url ,'m_num' : mnum},openadd);
+						
+	}
+	function openadd(add)
+	{
+		alert(add);
+		return false;
+		window.open (m_url+'/login.htm?url='+msn_url+'&rand='+Math.random(), 'newwindow', 'height='+mh+', width='+mw+', top=300,left=200, toolbar=no,  menubar=no, scrollbars=no, resizable=yes,location=no, status=no');
+	}*/
+
+var reg_pop={
+	action : function (msn_url,m_url,mnum){
+	
+			window.open (m_url+'/login.htm?url='+msn_url+'&rand='+Math.random(), 'newwindow', 'height=400, width=500, top=300,left=200, toolbar=no,  menubar=no, scrollbars=no, resizable=yes,location=no, status=no');
+	}
+};
+</script>
+<style>#img_ico{display:none;}</style>
+	
+	<table cellpadding='0' cellspacing='0' border='0' width='157' height='103' align='center'>
+	<tr>
+		<td width='15' valign='top' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_leftbg.gif'><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_topleft.gif'></td>
+		<td align='center' bgcolor='#f2f2f2' rowspan='2'>
+			<table cellpadding='0' cellspacing='0' border='0' width='100%' border=0 height='100%'>
+			<tr>
+				<td height='7' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_topbg.gif'></td></tr>
+			<tr>
+				<td>
+				<input type='hidden' name='whereIsAsaMember' value=''>
+
+
+				<table border='0' cellpadding='0' cellspacing='0' width='100%' height='100%'>
+				<tr>
+					<td rowspan='2' align='center' valign='middle' style='padding:1px;height:85px;'>
+						<img src='/imageup/admin/asadal.png' width='60' height='60' border='0' class='member_img'>
+					</td>
+					<td align='center' class='asmFieldText_userLogWindow' style='padding:5px 0px;'><img src='/~AsaProgram_chatty/module/adminmanage/image/Untitled-1.png' border=0 id='img_ico' align='left' onclick='reg_pop.action("","/setup/admin/manage","13")' ><b>아사달</b></td>
+				</tr>
+				<tr>
+					<td style='padding:0 0 0 3px'>
+						<table border='0' cellpadding='0' cellspacing='0' width='100%'>
+							<tr>
+								<td align='center' style='padding:0 0 0 0'>
+									<a href='/setup/admin/manage/modify.htm?AsaProNum=13' class='asmText_a' target=''><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/ko/modify_2.gif' border=0></a>
+								</td>
+							</tr>
+							<tr>
+								<td align='center' style='padding:0 0 0 0'>
+									<a href='javascript:logOut();'><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/ko/out_2.gif' border='0'></a>
+								</td>
+							</tr>												
+						</table>
+					</td>
+				</tr>				
+				</table>
+
+			
+				</td>
+			</tr>
+			<tr>
+				<td height='7' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_endbg.gif'></td>
+			</tr>
+			</table>
+		</td>
+		<td width='15' valign='top' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_rightbg.gif'><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_topright.gif'></td>
+	</tr>
+	<tr>
+		<td valign='bottom' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_leftbg.gif'><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_endleft.gif'></td>
+		<td valign='bottom' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_rightbg.gif'><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_endright.gif'></td>
+	</tr>
+	</table>
+	
+	<table>
+<tr>
+	<td height="5px">
+	</td>
+</tr>
+</table>
+<table border='0' cellpadding='0' cellspacing='0' width='96%' align='center' bgcolor='#deedd0'>
+	<tr>
+	<td  rowspan='2' width="3"></td>
+	<!--  left title부분  -->
+	<td style='background:url("/image/left_bg_01.gif") repeat-y'>
+		<table border='0' cellspacing='0' cellpadding='0' width='162' style="background:url('/image/left_text01_top.gif') no-repeat;">
+			<tr><td height='5' align='center'></td></tr>
+				<tr><td height='20' align="center"><img src='/image/text_01_04.gif' border='0'></td></tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' align="center" width='95%' class="left-important">
+		<tr><td width="1"></td></tr>
+<!-- 		<tr><td height='24' bgcolor='#D8E6C3'><img src='/~AsaProgram/asapro/image/i.gif' align='absmiddle'>AI 프로</td></tr> -->
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/chatting.htm?if_head=0&if_btn=1">AI 채팅</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/doc_summary.htm">AI 문서</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/text_trans.htm">AI 번역</a></td></tr>
+		<tr><td width="1"></td></tr>
+		<tr><td height='24' bgcolor='#D8E6C3'><img src='/~AsaProgram/asapro/image/i.gif' align='absmiddle'>학습관리</td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/text.htm">텍스트학습</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/file.htm">파일학습</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/homepage.htm">홈페이지학습</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/category.htm">분류관리</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/memory.htm">기억관리</a></td></tr>
+		<tr><td width="1"></td></tr>
+		<tr><td height='24' bgcolor='#D8E6C3'><img src='/~AsaProgram/asapro/image/i.gif' align='absmiddle'>챗봇관리</td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/chatlog.htm">사용기록</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/chat_list.htm">챗봇관리</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/config.htm">챗봇환경설정</a></td></tr>
+		<tr><td width="1"></td></tr>
+		<tr><td height='24' bgcolor='#D8E6C3'><img src='/~AsaProgram/asapro/image/i.gif' align='absmiddle'>환경설정</td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/member/manage/info/list.htm">회원관리</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/setup/admin/manage/list.htm">관리자관리</a></td></tr>
+		<tr><td height='3' bgcolor='#D8E6C3'></td></tr>
+		</table>
+	</td>
+</tr>
+</table>
+<table  border='0' cellspacing='0' cellpadding='0' align="center" width='95%'>
+	<tr>
+		<td><a href="javascript:;" class="chatl-btn" id="openWindow" style="display:flex;border:1px solid #e6edf8;background:#f3fbfc;margin-top:10px;height: 22px;align-items:center;justify-content:center;padding:3px 0;border-radius:50px;box-shadow:0 0 5px #ccc;font-weight:bold;font-size:14px;" title=""><img src="/chat/default.png" alt="" style="width: auto;height: 15px;margin-right: 5px;">채팅</a></td>
+	</tr>
+</table>
+<script>
+	var img2 = $(".chatl-btn img");  
+	var lW2 = img2.width();  
+	var lH2 = img2.height();  
+	if (lW2 < 22) {  
+		var newHeightaa = lH2 * 1.5;  
+		img2.css({height: newHeightaa});  
+	}
+</script>
+<script src="/chat/js/chat.js?v=20250324"></script>			</td>
+			<td width=14 bgcolor=#ffffff class='mNo'></td>
+			<td valign="top" align="left" class='mWidthMax'>
+			<!-- title 바 시작 //-->
+<table width="99%" cellpadding=0 cellspacing=0 border=0>
+<tr><td height=12 bgcolor="#FFFFFF"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=1></td></tr>
+<tr><td height=1 bgcolor="#D9D9D9"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=1></td></tr>
+<tr><td height=5 bgcolor="#ffffff"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=3></td></tr>
+<tr><td height=13>
+<table cellpadding=0 cellspacing=0 border=0>
+<tr>
+	<td><img src="/~AsaProgram/asapro/image/ii.gif" align="absmiddle"><b>AI 번역</b> | &nbsp;</td>
+	<td>
+		<table cellspacing=0 cellpadding=0 border=0>
+<img src='/~AsaProgram/asapro/image/i2.gif' align='absmiddle'><a href='/chat/text_trans.htm'><b> 텍스트 번역 </b></a><img src='/~AsaProgram/asapro/image/i2.gif' align='absmiddle'><a href='image_trans.htm'> 이미지 번역 </a><img src='/~AsaProgram/asapro/image/i2.gif' align='absmiddle'><a href='file_trans.htm'> 파일 번역 </a><img src='/~AsaProgram/asapro/image/i2.gif' align='absmiddle'><a href='homepage_trans.htm'> 홈페이지 번역 </a>		</td></tr>
+		</table>
+	</td>
+</tr>
+</table>
+<tr><td height=2 bgcolor="#F7F7F7"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=2></td></tr>
+<tr><td height=2 bgcolor="#EAEAEA"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=2></td></tr>
+<tr><td height=1 bgcolor="#FFFFFF"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=1></td></tr>
+<tr><td height=1 bgcolor="#B6B6B6"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=1></td></tr>
+<tr><td height=5><img src="/~AsaProgram/asapro2/admin/image/d.gif"></td></tr>
+<tr><td height=6 bgcolor="#FFFFFF"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=1></td></tr>
+</table>
+
+<!-- title 바 끝 //-->
+
+<link rel="stylesheet" href="./css/style.css">
+<script language="javascript" src="./js/js.js"></script>
+<script language="javascript" src="./js/ai.js"></script>
+<!-- chat S -->
+
+<style>
+.language-bar {display:flex;gap:10px;align-items:center;margin-bottom:15px;}
+.swap-btn {font-size: 20px;color: #fff;border:none;padding:8px 30px;border-radius:5px;cursor:pointer;transition:0.3s;background: #007BFF;}
+.swap-btn i{font-style: normal;transform: rotate(90deg);display: inline-block;}
+.swap-btn:hover {background:#0f63bd;}
+.translate-btn {background:#007BFF;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;transition:0.3s;}
+.translate-btn:hover {background:#0056b3;}
+.speak-btn,.copy-btn,.stop-btn {background:#007BFF;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;transition:0.3s;}
+.speak-btn img,.copy-btn img,.stop-btn img{width: 20px;}
+.speak-btn:hover,.copy-btn:hover,.stop-btn:hover {background:#0f63bd;}
+.stop-btn:disabled { opacity: 0.5; cursor: not-allowed;}
+.speak-btn[disabled] { opacity: 0.5; cursor: not-allowed;}
+select {padding:8px;border:1px solid #ccc;border-radius:4px;}
+.text-boxes {display:flex;gap:15px;}
+.text-boxes > div{border:1px solid #ccc;padding: 10px;padding-bottom: 30px;border-radius :4px;box-shadow: 0 0 10px #e0e0e0;align-self: flex-start;}
+.textarea {flex:1;padding:12px;border:1px solid #ccc;border-radius:8px;resize:none;font-size:19px;width: 100%;height: auto;min-height: 300px;transition: height 0.2s;resize: none;overflow: hidden;margin-top:10px;box-sizing: border-box;}
+#targetText {background:#f8f9fa;}
+.button-group {position:absolute;bottom:16px;left:10px;display:flex;gap:5px;}
+.language-selector {display:flex;}
+.language-selector li, .language-selector ul{list-style:none;padding: 0;margin: 0;}
+.language-selector div.selected {cursor:pointer;padding:10px;border:1px solid #ccc;width: 151px;padding-right: 25px;position:relative;}
+.language-selector div.selected::after{content:"";background:#fff url(./images/sub_layout_06.gif) no-repeat center center;position: absolute;right: 10px;top:calc(50% - 2px);width: 7px;height:4px;}
+.language-selector div.selected.on::after{transform: rotate(180deg);}
+.language-selector .dropdown {position:absolute;top:39px;background-color:white;border:1px solid #ccc;z-index: 1000;display:none;width:100%;box-sizing:border-box;padding: 10px;max-height: 300px;overflow-x: hidden;overflow-y: auto;min-width: 300px;}
+#selectSourceLang .refreshBtn{margin-left: 10px;display: flex;align-items: center;}
+#selectSourceLang .refreshBtn #refreshLink{display: flex;}
+#selectSourceLang .refreshBtn #refreshLink img{margin-right: 5px;width:19px;height:19px;}
+.dropdown li {padding:8px;cursor:pointer;float:left;width: calc(100% / 4);padding: 12px 15px;box-sizing: border-box;transition:0.3s;white-space: nowrap;}
+.dropdown li[style*="font-weight: 700"]{border-radius:4px;padding:12px 15px!important;}
+.dropdown li:hover {background-color:#f0f0f0;border-radius: 3px;}
+.dropdown li div[style*=border-top]{pointer-events:none;}
+.char-count { font-size: 14px; color: gray; text-align: left;padding-left: 307px;display: flex;align-items: end;height: 36px;}  
+.char-count span{margin-left:5px;display: inline-block;}
+.selected { font-weight: bold; }  
+.dropdown li.selected { background: #007bff url(./images/yes.png) no-repeat right center;color: #fff !important; background-size: 30px ;}
+.dropdown li.disabled {color: #ccc;pointer-events: none;}
+.dropdown li.disabled:hover {cursor: no-drop;}
+.sChange{display:flex;justify-content: space-between;}
+.dropdown li.dropdown-separator{border-top: 2px solid #f0f0f0; margin: 5px 0 !important; padding: 0;width: 100% !important;}
+/* 검색창 스타일 */
+.search-input { width: calc(100% - 20px); margin: 10px; padding: 8px !important; border: 1px solid #ccc; border-radius: 4px;height: 30px;outline: none;}
+/* 드롭다운 스크롤 및 최대 높이 설정 */
+.dropdown {max-height: 300px; overflow-y: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+#translateBtn{height: 36px;padding: 0 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;position: absolute;bottom: 16px;right: 10px}
+/* 오류 메시지 스타일 */
+.error-message{position:fixed;bottom:20px;right:20px;background:#ffebee;border:1px solid #ffcdd2;padding:15px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.1);z-index:1000}
+.error-message p{margin:0 0 10px 0;color:#c62828}
+.retry-btn{background:#d32f2f;color:#fff;border:none;padding:8px 15px;border-radius:4px;cursor:pointer;transition:background .3s}
+.retry-btn:hover{background:#b71c1c}
+
+.volume-control{display:flex;align-items:center;gap:5px;}
+.volume-slider{width:80px;height:5px;background:#ccc;border-radius:5px;outline:0;-webkit-appearance:none;}
+.volume-slider::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;background:#007bff;border-radius:50%;cursor:pointer;}
+.volume-icon{width:20px!important;height:20px!important;filter:invert(50%);}
+.volume-toast{position:fixed;bottom:30px;right:30px;padding:12px 24px;background:rgba(0,123,255,.9);color:#fff;border-radius:25px;box-shadow:0 4px 15px rgba(0,0,0,.2);font-family:Arial,sans-serif;font-size:16px;opacity:0;animation:fadeInOut 1s ease;z-index:1000;}
+@keyframes fadeInOut {
+	0% { opacity: 0; transform: translateY(20px); }
+	20% { opacity: 1; transform: translateY(0); }
+	80% { opacity: 1; transform: translateY(0); }
+	100% { opacity: 0; transform: translateY(-20px); }
+}
+</style>
+<div class="gwiChat-all">
+	<!-- S -->
+	<h3 class="h3-title">챗봇 선택
+		<select name="chat_bot" id="chat_bot"><option value="f4c1dbba-9cfa-40a0-ad79-e42464b37f96">웹검색 테스트</option><option value="6c1e1e0a-5d24-4b67-9547-c4b8b4eaa05b">동파 테스트1</option><option value="d6b6c935-25a0-4ae7-8949-e2abb948ce40">채팅 테스트</option><option value="deeeb8ec-4f25-4c53-8237-ba76dba2661b">장기기억 테스트</option><option value="69621793-a510-4e5c-90f2-afb4a0b0b623" selected>챗봇 테스트</option></select><script>
+			document.addEventListener('DOMContentLoaded', function() {
+				var selectElement = document.getElementById('chat_bot');
+
+				selectElement.addEventListener('change', function() {
+					var selectedValue = this.value;
+					setCookie('chat_bot', encodeURIComponent(selectedValue));
+					var newUrl = window.location.origin + window.location.pathname + '?chat_bot=' + encodeURIComponent(selectedValue);
+					var urlParams = new URLSearchParams(window.location.search);
+					if (urlParams.has('m')) {
+						newUrl += '&m=' + encodeURIComponent(urlParams.get('m'));
+					}
+					window.location.href = newUrl;
+				});
+			});
+			function setCookie(name, value) {
+				var expires = '';
+				var date = new Date();
+				date.setTime(date.getTime() + (60 * 60 * 24 * 1000));
+				expires = '; expires=' + date.toUTCString();
+				document.cookie = name + '=' + value + expires + '; path=/';
+			}
+		</script>	</h3>
+	<div class="container">
+		<div class="language-bar">
+			<input type="hidden" id="sourceLang" value="auto">
+			<input type="hidden" id="targetLang" value="ko">
+
+			<!-- <button class="translate-btn" onclick="translate()">번역</button>   -->
+		</div>
+		<div class="text-boxes">
+			<div style="flex: 1; position: relative;">
+				<div class="sChange">
+					<div id="selectSourceLang" class="language-selector">
+						<div class="selected" onclick="toggleDropdown('sourceLangDropdown')">자동감지</div>
+						<div id="sourceLangDropdown" class="dropdown" style="display:none;">
+							<input type="text" class="search-input" placeholder="언어 검색하기" onkeyup="filterLanguages(this, 'source')">
+						</div>
+						<div class="refreshBtn"><a href="#n" id="refreshLink"><img src="/~AsaProgram/module/member/image/index/main_table_icon.gif" border="0" title="새로고침" style="cursor:hand"> <span>새로 고침</span></a></div>
+					</div>
+					
+					<button class="swap-btn" onclick="swapLanguages()"><i>⇅</i></button>
+				</div>
+				<textarea id="sourceText" placeholder="번역할 내용을 입력하세요" class="textarea" maxlength="5000"></textarea>
+				<div class="char-count">글자수 : <span id="charCount">0</span>/5000</div>
+				<div class="button-group">
+					<button class="speak-btn" onclick="controlSpeech('play', 'sourceText')" title="재생"><img src="./images/icon-play.png" alt="재생"></button>
+					<button class="stop-btn" onclick="controlSpeech('pause', 'sourceText')" title="일시정지"><img src="./images/icon-pause.png" alt="일시정지"></button>
+					<button class="stop-btn" onclick="controlSpeech('stop', 'sourceText')" title="중지"><img src="./images/icon-stop.png" alt="중지"></button>
+					<div class="volume-control">
+						<input type="range" class="volume-slider" data-area="source" min="0" max="1" step="0.1" value="1">
+					</div>
+					<button class="copy-btn" onclick="copyText('sourceText')" title="복사"><img src="./images/icon-copy.png" alt="복사"></button>
+				</div>
+				<button id="translateBtn">번역하기</button>
+			</div>
+			<div style="flex: 1; position: relative;">
+				<div id="selectTargetLang" class="language-selector">
+					<div class="selected" onclick="toggleDropdown('targetLangDropdown')">한국어</div>
+					<div id="targetLangDropdown" class="dropdown" style="display:none;">
+						<input type="text" class="search-input" placeholder="언어 검색하기" onkeyup="filterLanguages(this, 'target')">
+					</div>
+				</div>
+				<textarea id="targetText" placeholder="번역 결과" class="textarea" maxlength="5000"></textarea>
+				<div class="char-count">글자수 : <span id="charCount2">0</span>/5000</div>
+				<div class="button-group">
+					<button class="speak-btn" onclick="controlSpeech('play', 'targetText')" title="재생"><img src="./images/icon-play.png" alt="재생"></button>
+					<button class="stop-btn" onclick="controlSpeech('pause', 'targetText')" title="일시정지"><img src="./images/icon-pause.png" alt="일시정지"></button>
+					<button class="stop-btn" onclick="controlSpeech('stop', 'targetText')" title="중지"><img src="./images/icon-stop.png" alt="중지"></button>
+					<div class="volume-control">
+						<input type="range" class="volume-slider" data-area="target" min="0" max="1" step="0.1" value="1">
+					</div>
+					<button class="copy-btn" onclick="copyText('targetText')" title="복사"><img src="./images/icon-copy.png" alt="복사"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// 언어 코드 매핑 객체
+		const languageCodeMap = {
+			'gl': "갈리시아어",
+			'el': "그리스어",
+			'gu': "구자라티어",
+			'nl': "네덜란드어",
+			'ne': "네팔어",
+			'nb': "노르웨이어(부크몰)",
+			'nn': "노르웨이어(니노르스크)",
+			'ny': "니얀자어",
+			'da': "덴마크어",
+			'de': "독일어",
+			'la': "라틴어",
+			'lb': "룩셈부르크어",
+			'lo': "라오어",
+			'lt': "리투아니아어",
+			'lv': "라트비아어",
+			'ro': "루마니아어",
+			'ru': "러시아어",
+			'mg': "말가시어",
+			'mi': "마오리어",
+			'mk': "마케도니아어",
+			'ml': "말라얄람어",
+			'mr': "마라티어",
+			'ms': "말레이어",
+			'mt': "몰타어",
+			'mn': "몽골어",
+			'be': "벨라루스어",
+			'bg': "불가리아어",
+			'bn': "벵골어",
+			'bs': "보스니아어",
+			'eu': "바스크어",
+			'my': "버마어",
+			'vi': "베트남어",
+			'ceb': "세부아노",
+			'es': "스페인어",
+			'gd': "스코틀랜드 게일어",
+			'sd': "신디어",
+			'si': "신할라어",
+			'sk': "슬로바키아어",
+			'sl': "슬로베니아어",
+			'sm': "사모아어",
+			'sn': "쇼나어",
+			'so': "소말리어",
+			'sr': "세르비아어",
+			'st': "소토어",
+			'su': "순다어",
+			'sv': "스웨덴어",
+			'sw': "스와힐리어",
+			'af': "아프리칸스",
+			'ar': "아랍어",
+			'az': "아제르바이잔어",
+			'ga': "아일랜드어",
+			'ht': "아이티 크리올어",
+			'hy': "아르메니아어",
+			'is': "아이슬란드어",
+			'sq': "알바니아어",
+			'eo': "에스페란토",
+			'et': "에스토니아어",
+			'en': "영어",
+			'uk': "우크라이나어",
+			'ur': "우르두어",
+			'uz': "우즈베크어",
+			'ig': "이그보어",
+			'it': "이탈리아어",
+			'yi': "이디시어",
+			'id': "인도네시아어",
+			'ja': "일본어",
+			'am': "암하릭",
+			'yo': "요루바어",
+			'cy': "웨일스어",
+			'jv': "자바어",
+			'ka': "조지아어",
+			'zh-Hans': "중국어",
+			'zh-Hant': "중국어(번체)",
+			'zu': "줄루어",
+			'cs': "체코어",
+			'ca': "카탈루냐어",
+			'co': "코르시카어",
+			'hr': "크로아티아어",
+			'kk': "카자흐어",
+			'km': "크메르어",
+			'kn': "칸나다어",
+			'ku': "쿠르드어",
+			'ky': "키르기스어",
+			'xh': "코사어",
+			'ta': "타밀어",
+			'te': "텔루구어",
+			'tg': "타지크어",
+			'th': "태국어",
+			'tr': "터키어",
+			'fa': "페르시아어",
+			'fi': "핀란드어",
+			'fil': "필리핀어",
+			'fr': "프랑스어",
+			'fy': "프리지아어",
+			'pa': "펀자브어",
+			'pl': "폴란드어",
+			'ps': "파슈토어",
+			'pt': "포르투갈어",
+			'ha': "하우사어",
+			'haw': "하와이언어",
+			'hi': "힌디어",
+			'hu': "헝가리어",
+			'he': "히브리어",
+			'ko': "한국어"
+		};
+
+		const languageCodeToBCP47 = {
+			'gl': 'gl-ES', // 갈리시아어
+			'el': 'el-GR', // 그리스어
+			'gu': 'gu-IN', // 구자라티어
+			'nl': 'nl-NL', // 네덜란드어
+			'ne': 'ne-NP', // 네팔어
+			'nb': 'nb-NO', // 노르웨이어(부크몰)
+			'nn': 'nn-NO', // 노르웨이어(니노르스크)
+			'ny': 'ny-MW', // 니얀자어
+			'da': 'da-DK', // 덴마크어
+			'de': 'de-DE', // 독일어
+			'la': 'la-VA', // 라틴어
+			'lb': 'lb-LU', // 룩셈부르크어
+			'lo': 'lo-LA', // 라오어
+			'lt': 'lt-LT', // 리투아니아어
+			'lv': 'lv-LV', // 라트비아어
+			'ro': 'ro-RO', // 루마니아어
+			'ru': 'ru-RU', // 러시아어
+			'mg': 'mg-MG', // 말가시어
+			'mi': 'mi-NZ', // 마오리어
+			'mk': 'mk-MK', // 마케도니아어
+			'ml': 'ml-IN', // 말라얄람어
+			'mr': 'mr-IN', // 마라티어
+			'ms': 'ms-MY', // 말레이어
+			'mt': 'mt-MT', // 몰타어
+			'mn': 'mn-MN', // 몽골어
+			'be': 'be-BY', // 벨라루스어
+			'bg': 'bg-BG', // 불가리아어
+			'bn': 'bn-BD', // 벵골어
+			'bs': 'bs-BA', // 보스니아어
+			'eu': 'eu-ES', // 바스크어
+			'my': 'my-MM', // 버마어
+			'vi': 'vi-VN', // 베트남어
+			'ceb': 'ceb-PH', // 세부아노
+			'es': 'es-ES', // 스페인어
+			'gd': 'gd-GB', // 스코틀랜드 게일어
+			'sd': 'sd-PK', // 신디어
+			'si': 'si-LK', // 신할라어
+			'sk': 'sk-SK', // 슬로바키아어
+			'sl': 'sl-SI', // 슬로베니아어
+			'sm': 'sm-WS', // 사모아어
+			'sn': 'sn-ZW', // 쇼나어
+			'so': 'so-SO', // 소말리어
+			'sr': 'sr-RS', // 세르비아어
+			'st': 'st-LS', // 소토어
+			'su': 'su-ID', // 순다어
+			'sv': 'sv-SE', // 스웨덴어
+			'sw': 'sw-TZ', // 스와힐리어
+			'af': 'af-ZA', // 아프리칸스
+			'ar': 'ar-SA', // 아랍어
+			'az': 'az-AZ', // 아제르바이잔어
+			'ga': 'ga-IE', // 아일랜드어
+			'ht': 'ht-HT', // 아이티 크리올어
+			'hy': 'hy-AM', // 아르메니아어
+			'is': 'is-IS', // 아이슬란드어
+			'sq': 'sq-AL', // 알바니아어
+			'eo': 'eo-EO', // 에스페란토
+			'et': 'et-EE', // 에스토니아어
+			'en': 'en-US', // 영어
+			'uk': 'uk-UA', // 우크라이나어
+			'ur': 'ur-PK', // 우르두어
+			'uz': 'uz-UZ', // 우즈베크어
+			'ig': 'ig-NG', // 이그보어
+			'it': 'it-IT', // 이탈리아어
+			'yi': 'yi-IL', // 이디시어
+			'id': 'id-ID', // 인도네시아어
+			'ja': 'ja-JP', // 일본어
+			'am': 'am-ET', // 암하릭
+			'yo': 'yo-NG', // 요루바어
+			'cy': 'cy-GB', // 웨일스어
+			'jv': 'jv-ID', // 자바어
+			'ka': 'ka-GE', // 조지아어
+			'zh-Hans': 'zh-CN', // 중국어(간체)
+			'zh-Hant': 'zh-TW', // 중국어(번체)
+			'zu': 'zu-ZA', // 줄루어
+			'cs': 'cs-CZ', // 체코어
+			'ca': 'ca-ES', // 카탈루냐어
+			'co': 'co-FR', // 코르시카어
+			'hr': 'hr-HR', // 크로아티아어
+			'kk': 'kk-KZ', // 카자흐어
+			'km': 'km-KH', // 크메르어
+			'kn': 'kn-IN', // 칸나다어
+			'ku': 'ku-TR', // 쿠르드어
+			'ky': 'ky-KG', // 키르기스어
+			'xh': 'xh-ZA', // 코사어
+			'ta': 'ta-IN', // 타밀어
+			'te': 'te-IN', // 텔루구어
+			'tg': 'tg-TJ', // 타지크어
+			'th': 'th-TH', // 태국어
+			'tr': 'tr-TR', // 터키어
+			'fa': 'fa-IR', // 페르시아어
+			'fi': 'fi-FI', // 핀란드어
+			'fil': 'fil-PH', // 필리핀어
+			'fr': 'fr-FR', // 프랑스어
+			'fy': 'fy-NL', // 프리지아어
+			'pa': 'pa-IN', // 펀자브어
+			'pl': 'pl-PL', // 폴란드어
+			'ps': 'ps-AF', // 파슈토어
+			'pt': 'pt-PT', // 포르투갈어
+			'ha': 'ha-NG', // 하우사어
+			'haw': 'haw-US', // 하와이언어
+			'hi': 'hi-IN', // 힌디어
+			'hu': 'hu-HU', // 헝가리어
+			'he': 'he-IL', // 히브리어
+			'ko': 'ko-KR'  // 한국어
+		};
+
+		// 드롭다운 동적 생성 함수 수정
+		function populateLanguageDropdowns() {
+			const preferredLanguages = {
+				source: ['auto', 'ko', 'en', 'zh-Hans'],
+				target: ['ko', 'en', 'zh-Hans', 'ja']
+			};
+
+			const createDropdown = (type) => {
+				const dropdown = document.getElementById(`${type}LangDropdown`);
+				dropdown.innerHTML = `
+					<input type="text" class="search-input" 
+						 placeholder="언어 검색하기" 
+						 onkeyup="filterLanguages(this, '${type}')">
+				`;
+
+				// 선호 언어 추가 (굵은 글씨)
+				preferredLanguages[type].forEach(code => {
+					const li = document.createElement('li');
+					li.textContent = code === 'auto' ? '자동감지' : languageCodeMap[code];
+					li.style.fontWeight = '700'; // 굵은 글씨
+					li.onclick = () => selectLanguage(type, code, li);
+					dropdown.appendChild(li);
+				});
+
+				// 구분선 추가
+				const separator = document.createElement('li');
+				separator.className = 'dropdown-separator';
+				dropdown.appendChild(separator);
+
+				// 전체 언어 목록 추가
+				Object.entries(languageCodeMap).forEach(([code, name]) => {
+					const li = document.createElement('li');
+					li.textContent = name;
+					li.onclick = () => selectLanguage(type, code, li);
+					dropdown.appendChild(li);
+				});
+			};
+
+			createDropdown('source');
+			createDropdown('target');
+		}
+
+		// LI 요소 생성 함수
+		function createLanguageItem(type, code, name) {
+			const li = document.createElement('li');
+			li.textContent = name;
+			li.dataset.code = code; // 데이터 속성 추가
+			li.onclick = function() {
+				selectLanguage(type, code, this);
+			};
+			return li;
+		}
+
+		// 언어 필터링 함수
+		function filterLanguages(input, type) {
+			const filter = input.value.toLowerCase();
+			const dropdown = document.getElementById(`${type}LangDropdown`);
+			const items = dropdown.querySelectorAll('li:not(.dropdown-separator)'); // 구분선 제외
+
+			items.forEach(item => {
+				const text = item.textContent.toLowerCase();
+				// 선호 언어와 일반 언어 모두 검색 적용
+				item.style.display = text.includes(filter) ? 'block' : 'none';
+				
+				// 검색어 강조 표시
+				if(filter && text.includes(filter)) {
+					const regex = new RegExp(`(${filter})`, 'gi');
+					item.innerHTML = item.textContent.replace(regex, '<mark>$1</mark>');
+				} else {
+					item.innerHTML = item.textContent; // 원상복구
+				}
+			});
+		}
+
+		// 드롭다운 함수
+		function toggleDropdown(dropdownId) {
+			const dropdown = document.getElementById(dropdownId);
+			const isOpen = dropdown.style.display === 'block';
+
+			document.querySelectorAll('.dropdown').forEach(d => {
+				d.style.display = 'none';
+				d.previousElementSibling.classList.remove('on');
+				d.querySelector('.search-input').value = ''; // 검색어 초기화
+				filterLanguages({value: ''}, dropdownId.includes('source') ? 'source' : 'target'); // 필터 초기화
+			});
+
+			if (!isOpen) {
+				dropdown.style.display = 'block';
+				dropdown.querySelector('.search-input').focus();
+				dropdown.previousElementSibling.classList.add('on');
+			}
+		}
+
+		function selectLanguage(type, lang, element) {
+			console.log(type);console.log(lang);console.log(element);
+			// 숨겨진 입력 값 업데이트
+			if (type === 'source') {
+				// 현재 선택된 타겟 언어와 동일한 언어가 선택된 경우 스위치
+				if (lang === document.querySelector('#targetLang').value) {
+					const currentTargetLang = document.querySelector('#targetLang').value;
+					document.querySelector('#targetLang').value = lang;
+					document.querySelector('#sourceLang').value = currentTargetLang;
+					document.querySelector('#selectTargetLang .selected').innerText = languageCodeMap[currentTargetLang];
+				} else {
+					document.querySelector('#sourceLang').value = lang;
+					document.querySelector('#selectSourceLang .selected').innerText = element.innerText;
+				}
+			} else {
+				// 현재 선택된 소스 언어와 동일한 언어가 선택된 경우 스위치
+				if (lang === document.querySelector('#sourceLang').value) {
+					const currentSourceLang = document.querySelector('#sourceLang').value;
+					document.querySelector('#sourceLang').value = lang;
+					document.querySelector('#targetLang').value = currentSourceLang;
+					document.querySelector('#selectSourceLang .selected').innerText = languageCodeMap[currentSourceLang];
+				} else {
+					document.querySelector('#targetLang').value = lang;
+					document.querySelector('#selectTargetLang .selected').innerText = element.innerText;
+				}
+			}
+
+			// 현재 드롭다운에서 다른 항목의 선택 상태 제거
+			const currentDropdown = type === 'source' ? document.querySelectorAll('#sourceLangDropdown li') : document.querySelectorAll('#targetLangDropdown li');
+			currentDropdown.forEach(item => {
+				if (item !== element) {
+					item.classList.remove('selected');
+				}
+			});
+
+			// 현재 선택된 항목에 스타일 적용
+			element.classList.add('selected');
+
+			// 감지된 언어 처리 함수 호출
+			handleDetectedLanguage(document.getElementById('sourceLang').value);
+
+			// 드롭다운 닫기
+			toggleDropdown(type === 'source' ? 'sourceLangDropdown' : 'targetLangDropdown');
+		}
+
+		// 로드 완료 시 실행
+		document.addEventListener('DOMContentLoaded', function() {
+			// 기본 언어 설정 강제 선택
+			const initialSourceLang = 'auto';
+			const initialTargetLang = 'ko';
+
+			// 소스 언어 초기 선택
+			const sourceItems = document.querySelectorAll('#sourceLangDropdown li');
+			sourceItems.forEach(item => {
+				if(item.textContent === languageCodeMap[initialSourceLang]) {
+					item.click(); // 가상 클릭 이벤트 트리거
+				}
+			});
+
+			// 타겟 언어 초기 선택
+			const targetItems = document.querySelectorAll('#targetLangDropdown li');
+			targetItems.forEach(item => {
+				if(item.textContent === languageCodeMap[initialTargetLang]) {
+					item.click(); // 가상 클릭 이벤트 트리거
+				}
+			});
+
+			// 500ms 후 중복 검사 재실행 (렌더링 지연 대응)
+			setTimeout(() => {
+				const currentSource = document.getElementById('sourceLang').value;
+				const currentTarget = document.getElementById('targetLang').value;
+				validateLanguageConflict(currentSource, currentTarget);
+			}, 500);
+		});
+
+		// 언어 충돌 검증 함수
+		function validateLanguageConflict(sourceLang, targetLang) {
+			const allItems = document.querySelectorAll('.dropdown li');
+
+			// 모든 항목 활성화
+			allItems.forEach(item => item.classList.remove('disabled'));
+
+			// 소스 ↔ 타겟 언어 동일 시 비활성화
+			if(sourceLang !== 'auto') {
+				const conflictItem = [...allItems].find(item => 
+					item.textContent === languageCodeMap[targetLang]
+				);
+				if(conflictItem) conflictItem.classList.add('disabled');
+			}
+
+			// 타겟 언어와 충돌하는 소스 항목 비활성화
+			const sourceConflict = [...allItems].find(item => 
+				item.textContent === languageCodeMap[sourceLang]
+			);
+			if(sourceConflict) sourceConflict.classList.add('disabled');
+		}
+
+		// 언어 감지 캐시 저장소 (Map 객체 사용)
+		const langDetectionCache = new Map();
+		const CACHE_TTL = 5 * 60 * 1000; // 5분 캐시 유지
+
+		// 언어 감지 함수
+		async function detectLanguage(text) {
+			const trimmedText = text.trim();
+			if (!trimmedText) return { code: 'auto', name: '자동감지', bcp47: 'auto' };
+
+			// 정확한 캐시 키 생성 (해시 포함)
+			const cacheKey = `${trimmedText.substring(0,50)}_${trimmedText.length}_${hashString(trimmedText)}`;
+
+			// 캐시 체크
+			if (langDetectionCache.has(cacheKey)) {
+				const result = langDetectionCache.get(cacheKey);
+				handleDetectedLanguage(result.code);
+				// UI 업데이트
+				document.getElementById('sourceLang').value = result.code;
+				document.querySelector('#selectSourceLang .selected').textContent = result.name;
+				return result;
+			}
+
+			try {
+				const controller = new AbortController();
+				const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+				const response = await fetch(`https://dev.chatbaram.com:9000/lang_detect`, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ INPUT_TEXT: trimmedText }),
+					signal: controller.signal
+				});
+				clearTimeout(timeoutId);
+
+				const result = await response.json();
+				const langCode = result || 'unknown';
+				const finalLangCode = languageCodeMap[langCode] ? langCode : 'unknown'; // 일치하지 않으면 'unknown'으로 설정
+
+				const finalResult = {
+					code: finalLangCode,
+					name: languageCodeMap[langCode] || '자동감지',
+					bcp47: languageCodeToBCP47[langCode] || 'auto'
+				};
+
+				// 캐시 저장
+				langDetectionCache.set(cacheKey, finalResult);
+				setTimeout(() => langDetectionCache.delete(cacheKey), CACHE_TTL);
+
+				// 감지된 언어 처리
+				lastDetectedCode = finalResult.code; // 최근 감지 언어 저장
+				handleDetectedLanguage(finalResult.code);
+				// UI 업데이트
+				document.getElementById('sourceLang').value = finalResult.code;
+				document.querySelector('#selectSourceLang .selected').textContent = finalResult.name;
+
+				return finalResult;
+
+			} catch (error) {
+				console.error('감지 오류:', error);
+				// 브라우저 언어로 대체
+				const browserLang = navigator.language?.slice(0,2) || 'en';
+				return {
+					code: browserLang,
+					name: languageCodeMap[browserLang] || '영어',
+					bcp47: languageCodeToBCP47[browserLang] || 'en-US'
+				};
+			}
+		}
+
+		// 해시 생성 함수
+		function hashString(str) {
+			let hash = 0;
+			for (let i = 0; i < str.length; i++) {
+				hash = Math.imul(31, hash) + str.charCodeAt(i) | 0;
+			}
+			return hash;
+		}
+
+		// 마지막으로 감지된 언어 코드 저장
+		let lastDetectedCode = null;
+
+		// 타겟 언어 변경 시 재검사
+		document.getElementById('targetLang').addEventListener('change', async () => {
+			const sourceText = document.getElementById('sourceText').value.trim();
+
+			if (sourceText) {
+				// 캐시 무효화 로직
+				const cacheKey = `${sourceText.substring(0,50)}_${sourceText.length}_${hashString(sourceText)}`;
+				langDetectionCache.delete(cacheKey); // 캐시 삭제
+
+				// UI 상태 초기화
+				document.getElementById('targetText').value = '';
+				document.getElementById('translateBtn').disabled = false;
+
+				// 언어 재감지 실행
+				await detectLanguage(sourceText);
+			}
+		});
+
+		// 감지된 언어 처리 함수
+		function handleDetectedLanguage(detectedCode) {
+			let newTargetLang;
+			const currentTargetLang = document.getElementById('targetLang').value;
+
+			// 감지된 언어가 한국어인 경우
+			if (detectedCode === 'ko') {
+				newTargetLang = 'en'; // 한국어가 감지되면 영어로 설정
+			} else {
+				// 감지된 언어가 타겟 언어와 동일하다면 한국어로 설정
+				newTargetLang = (detectedCode === currentTargetLang) ? 'ko' : currentTargetLang;
+			}
+
+			// 대상 언어 업데이트
+			document.getElementById('targetLang').value = newTargetLang;
+
+			// UI 표시 업데이트
+			const targetSelector = document.querySelector('#selectTargetLang .selected');
+			targetSelector.textContent = languageCodeMap[newTargetLang];
+			const sourceSelector = document.querySelector('#selectSourceLang .selected');
+			sourceSelector.textContent = languageCodeMap[detectedCode] || '자동감지';
+
+			// 드롭다운 목록 선택 상태 업데이트
+			document.querySelectorAll('#targetLangDropdown li').forEach(li => {
+				li.classList.toggle('selected', li.textContent === languageCodeMap[newTargetLang]);
+			});
+			document.querySelectorAll('#sourceLangDropdown li').forEach(li => {
+				li.classList.toggle('selected', li.textContent === languageCodeMap[detectedCode]);
+			});
+		}
+
+
+		// UI 업데이트 함수
+		function updateSourceLanguageUI(detectedLang) {
+			// 숨겨진 입력 값 업데이트
+			const sourceLangInput = document.getElementById('sourceLang');
+			sourceLangInput.value = detectedLang.code; // 숨겨진 값 업데이트
+			const displayElement = document.querySelector('#selectSourceLang .selected');
+			
+			// 표시 텍스트 업데이트
+			displayElement.textContent = detectedLang.name;  
+
+			// 드롭다운 항목의 선택 상태 업데이트
+			const dropdownItems = document.querySelectorAll('#sourceLangDropdown li');
+			dropdownItems.forEach(item => {
+				item.classList.remove('selected'); // 모든 선택 상태 제거
+				if (item.textContent === detectedLang.name) {
+					item.classList.add('selected'); // 감지된 언어 선택 상태 추가
+				}
+			});
+			console.log(detectedLang.name);
+			// 언어 선택 부분과 동기화
+			const allItems = document.querySelectorAll(`#sourceLangDropdown li, #targetLangDropdown li`);
+			allItems.forEach(item => {
+				item.classList.remove('disabled'); // 모든 항목의 비활성화 상태 제거
+			});
+
+			// 타겟 언어와 동일한 항목 비활성화
+			const selectedTargetLang = document.getElementById('targetLang').value;
+			if (selectedTargetLang) {
+				const disabledItem = Array.from(allItems).find(item => item.innerText === languageCodeMap[selectedTargetLang]);
+				if (disabledItem) {
+					disabledItem.classList.add('disabled'); // 타겟 언어 비활성화
+				}
+			}
+		}
+
+		// 로그
+		function saveTranslationLog(logData) {
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', './learn_translation_add.php', true);
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			
+			// 데이터 인코딩
+			var params = [
+				'log_type=' + encodeURIComponent(logData.type),
+				'input_meta=' + encodeURIComponent(logData.inputMeta),
+				'output_meta=' + encodeURIComponent(logData.outputMeta),
+				'input_content=' + encodeURIComponent(logData.inputText),
+				'output_content=' + encodeURIComponent(logData.outputText),
+				'mb_id=' + encodeURIComponent(logData.userId),
+				'mb_name=' + encodeURIComponent(logData.userName),
+				'chat_bot_id=' + encodeURIComponent(logData.chat_bot_id)
+			].join('&');
+
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4) {
+					try {
+						var response = JSON.parse(xhr.responseText);
+						if (!response.success) {
+							console.error('로그 저장 실패:', response.error);
+						}
+					} catch(e) {
+						console.error('응답 파싱 오류:', e);
+					}
+				}
+			};
+			
+			xhr.send(params);
+		}
+
+		// fetch 요청 래퍼 함수, 최대 3회 재시도(300ms → 600ms → 1200ms)
+		async function fetchWithRetry(url, options, retries = 3, backoff = 300) {
+			try {
+				const response = await fetch(url, options);
+				if (!response.ok) throw new Error(`HTTP ${response.status}`);
+				return response;
+			} catch (error) {
+				if (retries > 0) {
+					console.log(`재시도 남은 횟수: ${retries}`);
+					await new Promise(resolve => setTimeout(resolve, backoff));
+					return fetchWithRetry(url, options, retries - 1, backoff * 2);
+				}
+				throw error;
+			}
+		}
+
+		// 번역하기
+		let isTranslating = false;
+		async function translate() {
+			const sourceTextEl = document.getElementById('sourceText');
+			const targetTextEl = document.getElementById('targetText');
+			let sourceLang = document.getElementById('sourceLang').value;
+			let targetLang = document.getElementById('targetLang').value;
+
+			let inputText = sourceTextEl.value.trim();
+			let detectedLang = sourceLang;
+
+			if (!inputText) {
+				targetTextEl.value = '';
+				adjustFontSize(targetTextEl, 'charCount2');
+				return;
+			}
+
+			if (isTranslating) {
+				console.log('이미 번역 중입니다.');
+				return;
+			}
+
+			isTranslating = true;
+			const translateBtn = document.getElementById('translateBtn');
+			translateBtn.disabled = true;
+			translateBtn.textContent = '번역 중...';
+
+			try {
+				// 언어 자동 감지
+				if (sourceLang === 'auto') {
+					const detection = await detectLanguage(inputText);
+					detectedLang = detection.code;
+					document.getElementById('sourceLang').value = detectedLang;
+
+					// 언어 감지 후 targetLang 값이 변경되었을 수 있으므로 다시 가져옴
+					targetLang = document.getElementById('targetLang').value;
+				}
+
+				// 번역 요청
+				const payload = {
+					text: inputText,
+					source_lang: sourceLang === 'auto' ? detectedLang : sourceLang,
+					target_lang: targetLang,
+					db_name: 'dev_user',
+					chat_bot_id: '69621793-a510-4e5c-90f2-afb4a0b0b623'
+				};
+
+				const response = await fetchWithRetry(`https://dev.chatbaram.com:9000/ai_trans`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'X-Requested-With': 'XMLHttpRequest'
+					},
+					body: JSON.stringify(payload)
+				});
+
+				// 스트림 처리
+				const reader = response.body.getReader();
+				const decoder = new TextDecoder();
+				let buffer = '';
+				let accumulatedAnswer = '';
+
+				while (true) {
+					const { done, value } = await reader.read();
+					if (done) break;
+
+					buffer += decoder.decode(value, { stream: true });
+					const events = buffer.split('\n\n');
+					buffer = events.pop() || '';
+
+					for (const event of events) {
+						const match = event.match(/^data: (.*)/);
+						if (match) {
+							try {
+								const data = JSON.parse(match[1]);
+								if (data.answer) {
+									accumulatedAnswer += data.answer;
+									targetTextEl.value = accumulatedAnswer;
+									adjustFontSize(targetTextEl, 'charCount2');
+									targetTextEl.scrollTop = targetTextEl.scrollHeight;
+								}
+							} catch (e) {
+								console.error('파싱 오류:', e);
+							}
+						}
+					}
+				}
+
+				// 음성 버튼 활성화
+				updateSpeechButtons();
+
+				// 성공 시 로그 저장
+				if (accumulatedAnswer) {
+					saveTranslationLog({
+						type: 'text',
+						inputMeta: `${detectedLang}`,
+						outputMeta: `${targetLang}`,
+						inputText: inputText,
+						outputText: accumulatedAnswer,
+						userId: 'asadal',
+						userName: '아사달',
+						chat_bot_id: '69621793-a510-4e5c-90f2-afb4a0b0b623',
+					});
+				}
+
+			} catch (error) {
+				console.error('번역 오류:', error);
+				targetTextEl.value = '⚠️ 실시간 번역 중 오류 발생';
+				adjustFontSize(targetTextEl, 'charCount2');
+			} finally {
+				isTranslating = false;
+				translateBtn.disabled = false;
+				translateBtn.textContent = '번역하기';
+			}
+		}
+
+		// 음성 지원 여부 체크
+		let synth = null;
+		let currentUtterance = null;
+
+		if ('speechSynthesis' in window) {
+			synth = window.speechSynthesis;
+		} else {
+			console.error('이 브라우저는 음성 합성을 지원하지 않습니다');
+			document.querySelectorAll('.speak-btn, .stop-btn').forEach(btn => btn.disabled = true);
+		}
+
+		// 음성 제어 상태 객체
+		const speechControl = {
+			source: {
+				state: 'stopped',  // stopped, playing, paused
+				volume: 1,
+				utterance: null,
+				text: '',         // 현재 재생 중인 텍스트
+				charIndex: 0      // 현재 재생 위치
+			},
+			target: {
+				state: 'stopped',
+				volume: 1,
+				utterance: null,
+				text: '',
+				charIndex: 0
+			}
+		};
+
+		// GainNode 선언
+		let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+		let gainNode = audioContext.createGain();
+		gainNode.gain.value = 1; // 초기 볼륨 설정
+		gainNode.connect(audioContext.destination); // GainNode를 출력에 연결
+
+		// 음성 제어 함수
+		function controlSpeech(action, textAreaId) {
+			if (!synth) {
+				alert("이 브라우저는 음성 합성을 지원하지 않습니다");
+				return;
+			}
+			
+			const currentArea = textAreaId === 'sourceText' ? 'source' : 'target';
+			const otherArea = currentArea === 'source' ? 'target' : 'source';
+			
+			// 현재 상태 확인
+			const currentState = speechControl[currentArea].state;
+			
+			switch (action) {
+				case 'play':
+					if (currentState === 'paused') {
+						// 일시 정지 상태에서 재생 시 이어서 재생
+						try {
+							synth.resume();
+							speechControl[currentArea].state = 'playing';
+						} catch (error) {
+							console.error('재개 오류:', error);
+							// 오류 발생 시 처음부터 다시 시작
+							startPlayback(currentArea, textAreaId);
+						}
+					} else {
+						// 다른 영역의 음성이 재생 중이면 완전히 정지
+						synth.cancel();
+						speechControl.source.state = 'stopped';
+						speechControl.target.state = 'stopped';
+						
+						// 약간의 지연 후 새로운 재생 시작
+						setTimeout(() => {
+							startPlayback(currentArea, textAreaId);
+						}, 200);
+					}
+					break;
+					
+				case 'pause':
+					if (currentState === 'playing') {
+						try {
+							synth.pause();
+							speechControl[currentArea].state = 'paused';
+						} catch (error) {
+							console.error('일시정지 오류:', error);
+							stopSpeech(currentArea);
+						}
+					}
+					break;
+					
+				case 'stop':
+					stopSpeech(currentArea);
+					break;
+			}
+			
+			updateSpeechButtons();
+		}
+
+		// 음성을 재생하는 함수
+		async function startPlayback(area, textAreaId) {
+			const text = document.getElementById(textAreaId).value.trim();
+			if (!text) return;
+
+			speechControl[area].text = text;
+
+			// TTS 음성을 생성하기 위해 Web Speech API 사용
+			const utterance = new SpeechSynthesisUtterance(text);
+			utterance.lang = getLanguageCode(textAreaId);
+			utterance.volume = speechControl[area].volume; // 초기 볼륨 설정
+			utterance.rate = 1;
+
+			// 이벤트 핸들러 추가ㄴ
+			utterance.onstart = () => {
+				speechControl[area].state = 'playing';
+				speechControl[area].utterance = utterance; // 현재 utterance 저장
+				updateSpeechButtons();
+			};
+
+			utterance.onend = () => {
+				speechControl[area].state = 'stopped';
+				speechControl[area].utterance = null; // 재생 종료 시 null로 설정
+				updateSpeechButtons();
+			};
+
+			utterance.onerror = (event) => {
+				stopSpeech(area);
+				if (event.error !== 'interrupted') {
+					console.error('음성 오류:', event);
+				}
+			};
+
+			// 음성을 재생
+			synth.speak(utterance);
+		}
+
+		// 오류 메시지 표시 함수
+		function showErrorToast(message) {
+			const toast = document.createElement('div');
+			toast.className = 'volume-toast';
+			toast.style.background = '#ff3b30';
+			toast.textContent = message;
+			document.body.appendChild(toast);
+			setTimeout(() => toast.remove(), 3000);
+		}
+
+		// 음성 정지 함수
+		function stopSpeech(area) {
+			if (!synth) return;
+			
+			try {
+				synth.cancel();
+				// 모든 영역의 상태 초기화
+				speechControl.source.state = 'stopped';
+				speechControl.target.state = 'stopped';
+				speechControl.source.utterance = null;
+				speechControl.target.utterance = null;
+				updateSpeechButtons();
+			} catch (error) {
+				console.error('정지 오류:', error);
+				// 오류 발생 시에도 상태 초기화
+				speechControl.source.state = 'stopped';
+				speechControl.target.state = 'stopped';
+				speechControl.source.utterance = null;
+				speechControl.target.utterance = null;
+				updateSpeechButtons();
+			}
+		}
+
+		// 볼륨 변경 시 토스트 메시지 표시
+		function showVolumeToast(volume) {
+			const toast = document.createElement('div');
+			toast.className = 'volume-toast';
+			toast.textContent = `볼륨: ${Math.round(volume * 100)}%`;
+			document.body.appendChild(toast);
+
+			// 1초 후 자동 제거
+			setTimeout(() => toast.remove(), 1000);
+		}
+
+		// 볼륨 제어 초기화
+		function initVolumeControls() {
+			document.querySelectorAll('.volume-slider').forEach(slider => {
+				const area = slider.dataset.area;
+				
+				// 볼륨 초기값 설정
+				slider.value = speechControl[area].volume;
+				
+				slider.addEventListener('input', (e) => {
+					const newVolume = parseFloat(e.target.value);
+					speechControl[area].volume = newVolume;
+					
+					// 토스트 메시지 표시
+					showVolumeToast(newVolume);
+					
+					console.log("현재 speechControl 상태 : ", speechControl[area].state)
+					// GainNode의 볼륨 조절 (음성이 재생 중일 때)
+					if (speechControl[area].state === 'playing') {
+						// GainNode 값을 업데이트
+						gainNode.gain.value = newVolume; // GainNode를 통해 볼륨 조절
+
+						// 현재 재생 중인 utterance의 볼륨도 업데이트
+						if (speechControl[area].utterance) {
+							console.log("현재 utterance 볼륨 : ", speechControl[area].utterance.volume);
+							speechControl[area].utterance.volume = newVolume; // utterance의 볼륨 업데이트
+						} else {
+							console.log("현재 재생 중인 utterance가 없습니다.");
+						}
+					}
+				});
+			});
+		}
+
+		// 페이지 가시성 변경 시 처리
+		document.addEventListener('visibilitychange', () => {
+			if (document.visibilityState === 'hidden') {
+				// 모든 영역 정지
+				stopSpeech('source');
+				stopSpeech('target');
+			}
+		});
+
+		// 페이지 언로드 시 처리
+		window.addEventListener('beforeunload', () => {
+			stopSpeech('source');
+			stopSpeech('target');
+		});
+
+		// 버튼 상태 업데이트
+		function updateSpeechButtons() {
+			document.querySelectorAll('.button-group').forEach(group => {
+				const container = group.closest('.text-boxes > div');
+				if (!container) return;
+				
+				const textarea = container.querySelector('textarea');
+				if (!textarea) return;
+				
+				const area = textarea.id === 'sourceText' ? 'source' : 'target';
+				const state = speechControl[area].state;
+				const hasText = textarea.value.trim().length > 0;
+				
+				// 재생 버튼
+				const playBtn = group.querySelector('.speak-btn');
+				if (playBtn) {
+					playBtn.disabled = !hasText;
+					playBtn.style.opacity = hasText ? '1' : '0.5';
+				}
+				
+				// 일시정지 버튼
+				const pauseBtn = group.querySelector('.stop-btn[onclick*="pause"]');
+				if (pauseBtn) {
+					pauseBtn.disabled = state === 'stopped';
+					pauseBtn.style.opacity = state === 'stopped' ? '0.5' : '1';
+				}
+				
+				// 정지 버튼
+				const stopBtn = group.querySelector('.stop-btn[onclick*="stop"]');
+				if (stopBtn) {
+					stopBtn.disabled = state === 'stopped';
+					stopBtn.style.opacity = state === 'stopped' ? '0.5' : '1';
+				}
+			});
+		}
+
+		// 언어 코드 가져오기
+		function getLanguageCode(textAreaId) {
+			const lang = document.getElementById(textAreaId === 'sourceText' ? 'sourceLang' : 'targetLang').value;
+			const bcpCode = languageCodeToBCP47[lang] || 'en-US';
+
+			// 사용 가능한 음성 중 가장 적합한 음성 선택
+			const voices = synth.getVoices();
+			const matchingVoice = voices.find(voice => 
+				voice.lang === bcpCode || voice.lang.startsWith(lang)
+			);
+
+			return matchingVoice ? matchingVoice.lang : 'en-US';
+		}
+
+		// 언어 전환 기능
+		function swapLanguages() {
+			const sourceLang = document.getElementById('sourceLang'); // 소스 언어 선택
+			const targetLang = document.getElementById('targetLang'); // 타겟 언어 선택
+
+			// 음성 중지
+			stopSpeech();
+
+			// 언어 옵션 교환
+			[sourceLang.value, targetLang.value] = [targetLang.value, sourceLang.value];
+
+			// 텍스트 상자 내용 교환
+			const sourceTextArea = document.getElementById('sourceText'); // 소스 텍스트 상자
+			const targetTextArea = document.getElementById('targetText'); // 타겟 텍스트 상자
+			[sourceTextArea.value, targetTextArea.value] = [targetTextArea.value, sourceTextArea.value];
+
+			// 표시된 텍스트 업데이트
+			const sourceLangDisplay = document.querySelector('#selectSourceLang .selected'); // 소스 언어 표시
+			const targetLangDisplay = document.querySelector('#selectTargetLang .selected'); // 타겟 언어 표시
+			[sourceLangDisplay.innerText, targetLangDisplay.innerText] =
+				[languageCodeMap[sourceLang.value], languageCodeMap[targetLang.value]]; // 현재 언어 이름으로 업데이트
+
+			// 드롭다운의 선택 상태 업데이트
+			const sourceDropdownItems = document.querySelectorAll('#sourceLangDropdown li'); // 소스 드롭다운 항목
+			const targetDropdownItems = document.querySelectorAll('#targetLangDropdown li'); // 타겟 드롭다운 항목
+
+			sourceDropdownItems.forEach(item => {
+				item.classList.remove('selected'); // 모든 항목의 선택 상태 제거
+				if (item.innerText === languageCodeMap[sourceLang.value]) {
+					item.classList.add('selected'); // 현재 소스 언어 선택 상태 추가
+				}
+			});
+
+			targetDropdownItems.forEach(item => {
+				item.classList.remove('selected'); // 모든 항목의 선택 상태 제거
+				if (item.innerText === languageCodeMap[targetLang.value]) {
+					item.classList.add('selected'); // 현재 타겟 언어 선택 상태 추가
+				}
+			});
+
+			// 글자 수 업데이트
+			//document.getElementById('charCount').textContent = sourceTextArea.value.length; // 소스 텍스트 글자 수 업데이트
+			//document.getElementById('charCount2').textContent = targetTextArea.value.length; // 타겟 텍스트 글자 수 업데이트
+
+
+			// 텍스트 상자의 글꼴 크기 및 높이 조정
+			adjustFontSize(sourceTextArea, 'charCount');
+			adjustFontSize(targetTextArea, 'charCount2');
+
+			// 소스 텍스트 상자에 내용이 있는 경우 언어 재감지
+			if (sourceTextArea.value.trim()) {
+				detectLanguage(sourceTextArea.value.trim());
+			}
+		}
+
+		// 복사 기능
+		function copyText(elementId) {
+			const element = document.getElementById(elementId);
+			element.select();
+			document.execCommand('copy');
+			
+			// 복사 완료 메시지 표시
+			const toast = document.createElement('div');
+			toast.className = 'volume-toast';
+			toast.textContent = '복사되었습니다.';
+			document.body.appendChild(toast);
+			
+			// 1초 후 메시지 제거
+			setTimeout(() => {
+				document.body.removeChild(toast);
+			}, 1000);
+		}
+
+		// 글자수 통계 및 폰트 크기 조정
+		function adjustFontSize(textArea, charCountId) {
+			const text = textArea.value;
+			const charCount = countCharacters(text);
+
+			// 글자수 업데이트
+			const charCountElement = document.getElementById(charCountId);  
+			if (charCountElement) {  
+				charCountElement.textContent = charCount;  
+			} else {  
+				console.error(`Element with id '${charCountId}' not found.`);  
+			}
+
+			// 글자수에 따라 폰트 크기 조정
+			if (charCount > 40) {
+				textArea.style.fontSize = '15px';
+			} else {
+				textArea.style.fontSize = ''; // 기본 폰트 크기로 복원
+			}
+
+			// 자동 높이 조정
+			textArea.style.height = 'auto';
+			textArea.style.height = textArea.scrollHeight + 'px';
+		}
+
+		// 글자수 통계 (한국어 및 중국어 기준)
+		function countCharacters(text) {
+			// 한국어 문자 범위: [\uAC00-\uD7AF]
+			const koreanCharCount = (text.match(/[\uAC00-\uD7AF]/g) || []).length;
+
+			// 중국어 문자 범위: [\u4E00-\u9FFF]
+			const chineseCharCount = (text.match(/[\u4E00-\u9FFF]/g) || []).length;
+
+			// 영문 문자 범위: [a-zA-Z]
+			const englishCharCount = (text.match(/[a-zA-Z]/g) || []).length;
+
+			// 기타 문자 (공백, 특수문자, 줄바꿈 등)
+			const otherCharCount = text.replace(/[\uAC00-\uD7AF\u4E00-\u9FFFa-zA-Z]/g, '').length;
+
+			// 통계 규칙:
+			// 한국어 문자: 1글자
+			// 중국어 문자: 1글자
+			// 영문 문자: 0.5글자
+			// 기타 문자: 0.5글자
+			return Math.floor(koreanCharCount + chineseCharCount + englishCharCount * 0.5 + otherCharCount * 0.5);
+		}
+
+		// 입력 이벤트 핸들러
+		let debounceTimeout;
+		let abortController;
+
+		const sourceTextArea = document.getElementById('sourceText');
+
+		['input', 'paste', 'drop'].forEach(event => {
+			sourceTextArea.addEventListener(event, function(e) {
+				abortController?.abort(); // 진행 중인 요청 중단
+				clearTimeout(debounceTimeout);
+
+				const isPaste = e.type === 'paste' || !!e.clipboardData;
+				const debounceTime = isPaste ? 500 : 1000; // 붙여넣기는 더 빠른 응답
+
+				debounceTimeout = setTimeout(async () => {
+					const text = this.value.trim();
+					if (!text) {
+						document.getElementById('targetText').value = '';
+						adjustFontSize(document.getElementById('targetText'), 'charCount2');
+						return;
+					}
+
+					try {
+						abortController = new AbortController();
+						// 먼저 언어 감지 수행
+						const detection = await detectLanguage(text);
+						// 감지된 언어에 따라 targetLang이 handleDetectedLanguage에서 업데이트됨
+						
+						// 언어 감지 후 번역 실행
+						await translate();
+					} catch (error) {
+						console.error('처리 실패:', error);
+					}
+				}, debounceTime);
+			});
+		});
+
+		// 전체 선택 붙여넣기 처리
+		sourceTextArea.addEventListener('select', function() {
+			this.dataset.fullSelected = this.selectionStart === 0 && this.selectionEnd === this.value.length;
+		});
+
+		sourceTextArea.addEventListener('paste', function(e) {
+			if (this.dataset.fullSelected === 'true') {
+				langDetectionCache.clear(); // 기존 캐시 초기화
+				this.value = '';
+				// 강제로 입력 이벤트 발생
+				const event = new Event('input', { bubbles: true });
+				this.dispatchEvent(event);
+			}
+		});
+
+		// 번역 버튼 클릭 이벤트 추가 (수동 번역용으로 유지)
+		document.getElementById('translateBtn').addEventListener('click', function () {
+			translate(); // 번역 실행
+			this.disabled = true;
+			setTimeout(() => this.disabled = false, 3000); // 3초간 추가 클릭 방지
+		});
+
+		// 초기화: 입력 상자에 입력 이벤트 리스너 추가
+		document.getElementById('sourceText').addEventListener('input', function () {
+			adjustFontSize(this, 'charCount'); // sourceText 문자 수 통계
+		});
+
+		document.getElementById('targetText').addEventListener('input', function () {
+			adjustFontSize(this, 'charCount2'); // targetText 문자 수 통계
+		});
+
+		// TTS 초기화
+		document.addEventListener('DOMContentLoaded', () => {
+			populateLanguageDropdowns();
+			initVolumeControls();
+			updateSpeechButtons();
+
+			// textarea 값 변경 시 버튼 상태 업데이트
+			['sourceText', 'targetText'].forEach(id => {
+				const textarea = document.getElementById(id);
+				textarea.addEventListener('input', () => {
+					updateSpeechButtons();
+				});
+			});
+		});
+
+		// 새로 고침
+		document.getElementById("refreshLink").onclick = function(event) {
+			event.preventDefault();
+			location.reload();
+		};
+	</script>
+	<!-- E -->
+</div>
+
+<!-- chat E -->
+
+		</td></tr>
+			<table width=100% cellpadding=0 cellspacing=0 border=0>
+		<tr height=20>
+			<td width=161></td>
+			<td></td>
+			<td align=right colspan=2><a href='#top'><img src='/~AsaProgram_chatty/asapro2/admin/image/top.gif' border=0></a>&nbsp;&nbsp;&nbsp;</td></tr>
+		</table></td></tr>
+	
+<table width=100% cellpadding=0 cellspacing=0 border=0>
+<!-- <tr>
+	<td height=27 align=center class=copyright background="/~AsaProgram_chatty/asapro2/admin/image/copyright.gif">Copyright ⓒ tms.han.kr All rights reserved.	</td></tr> -->
+<tr>
+	<td height=27 align=center class=copyright background="/~AsaProgram_chatty/asapro2/admin/image/copyright.gif">Copyright ⓒ dev.han.kr All rights reserved.
+	</td></tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+<!-- <div class="ipetlogo"><a href="/chat/text.htm"><img src="/imageup/baseconimg/thumb_image/asetec.png" alt=""></a></div> -->
+<style>
+	.ipetlogo{position: absolute;width: 161px;left: 0;top: 12px;}
+	.ipetlogo a{display: flex;width: 100%;align-items: center;justify-content: center;overflow: hidden;}
+	.ipetlogo img{width: 120px;padding-top: 10px;}
+	.ipetheader{position: absolute;display: none;}
+	.ipetleft{/*padding-top: 80px;*/padding-top: 12px;}
+</style><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>관리자 사이트</title>
+<link rel="stylesheet" href="http://">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+<script language="javascript" src="/js/jquery-1.8.3.min.js"></script>
+<script language="javascript" src="/lib/js/rollover.js"></script>
+<style type="text/css">
+	td {font-size: 9pt ; color: #333333}
+	A:link { color: #333333; font-size: 9pt; text-decoration: none;}
+	A:visited { color: #333333; font-size: 9pt; text-decoration: none; }
+	A:hover { color: #0066CC; font-size: 9pt; text-decoration:underline; }
+	.copyright { color: #333333; font-size: 8pt}
+	.buttonStyle { font-size:12px; } /* 각 페이지의 버튼 style */
+	.td_none_bottom	{BORDER-RIGHT: #9AB6E4 1px solid; BORDER-TOP: #9AB6E4 1px solid; BORDER-LEFT: #9AB6E4 1px solid; BORDER-BOTTOM: #9AB6E4 0px solid}
+	.td_none_top	{BORDER-RIGHT: #9AB6E4 1px solid; BORDER-TOP: #9AB6E4 0px solid; BORDER-LEFT: #9AB6E4 1px solid; BORDER-BOTTOM: #9AB6E4 1px solid}
+	.td_view_all		{BORDER-RIGHT: #9AB6E4 1px solid; BORDER-TOP: #9AB6E4 1px solid; BORDER-LEFT: #9AB6E4 1px solid; BORDER-BOTTOM: #9AB6E4 1px solid}
+
+</style>
+
+<link rel="stylesheet" href="/~AsaProgram_chatty/library/css/app.css">
+
+<script>
+jQuery(document).ready(function(){
+    jQuery('.ipetleft td[height="20"][align="center"]').addClass("ipetleftTitle");
+	jQuery(".sp_nav").click(function(e){
+		if(jQuery(this).hasClass("sp_nav_se")){
+			jQuery(this).removeClass("sp_nav_se");
+			jQuery(".ipetleft").animate({left:"-100%"},300);
+		}else{
+			jQuery(".ipetleft").animate({left:"0"},300);
+			jQuery(this).addClass("sp_nav_se");
+		}
+	});
+});
+</script>
+<script>
+	function logoutThis()
+	{
+		var result = confirm('로그아웃하시겠습니까?');
+		if (result) {
+			location.replace('/AsaProMember/logout.php?action=asmUserLogOut')
+		}
+		return;
+	}
+
+
+
+/*function GetKeyStroke(KeyStroke) {
+    var evt = KeyStroke || window.event;
+    var eventChooser = evt.keyCode;
+
+    var target = evt.target || evt.srcElement;
+
+    while(target && target.tagName.toLowerCase() != 'input' &&
+        target.tagName.toLowerCase() != 'textarea') {
+        target = target.parentElement;
+    }
+
+    if (!target) {
+        var which = String.fromCharCode(eventChooser).toLowerCase();
+        for (var i in key) {
+            if (which == i) {
+                document.location.href = key[i];
+            }
+        }
+    }
+}
+document.onkeyup = GetKeyStroke;*/
+
+</script>
+
+<script language='javascript'>
+var divName = 'sub_';
+var divs = new Array('none', 'asapro');
+function viewLayer(layerCode) {
+	var idname = eval(divName + layerCode);
+	allLayerClose();
+	idname.style.display = 'block';
+}
+
+function allLayerClose() {
+	for(i = 0;i < divs.length;i++) {
+		var idname = eval(divName + divs[i]);
+		idname.style.display = 'none';
+	}
+}
+
+function defaultLayer() {
+	var idname = eval(divName + divs[0]);
+	allLayerClose();
+	idname.style.display = 'block';
+}
+</script>
+
+
+</head>
+<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 >
+<div class="sp_nav"> <span></span> <span></span> <span></span> </div>
+<table width=100% cellpadding=0 cellspacing=0 border=0 class="ipetheader">
+<tr>
+	<td height=60 width="100%" >
+	<div class="widthScroll">
+		<table border="0" cellspacing="0" cellpadding="0" align="left">
+		<tr>
+						<td align="center" valign="middle"><a href="/work/apply/apply_list.htm"><img src="/imageup/baseconimg/thumb_image/130337794774.gif" border="0"></a></td>
+						<td><img src='/image/spacer.gif' width='14' height='60'></td>
+			<td><img src='/image/00.gif' width='14' height='60'></td>
+						<td background="/image/awi_asadalbg_03.gif"><a href="/work/apply/apply_list.htm" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('Image1','','/~AsaProgram_chatty/asapro2/admin/image/ko/18_.gif',1);"><img src="/~AsaProgram_chatty/asapro2/admin/image/ko/18.gif"   border="0" name="Image1"></a></td>
+									<!-- 이웃관리 위치 -->
+												<!-- 사이트관리 위치 -->
+			
+
+						
+			<!-- 웹메일 위치 -->
+			
+			
+			<td background="/~AsaProgram_chatty/asapro2/admin/image/awi_asadalbg_03a.gif"><a href="/chat/" onMouseOut="MM_swapImgRestore();" 
+			onMouseOver="MM_swapImage('Image9','','/~AsaProgram_chatty/asapro2/admin/image/2024_chat.gif',1);">
+			<img src="/~AsaProgram_chatty/asapro2/admin/image/2024_chat.gif"   border="0" name="Image9"></a></td>
+			
+			<td background="/image/awi_asadalbg_03.gif"><a href="/member/manage/info/list.htm" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('Image2','','/~AsaProgram_chatty/asapro2/admin/image/ko/19_.gif',1);"><img src="/~AsaProgram_chatty/asapro2/admin/image/ko/19.gif"   border="0" name="Image2"></a></td>
+
+			<td align="right" background="/image/awi_asadalbg_03.gif"><a href="/setup/admin/manage/list.htm" onMouseOut="MM_swapImgRestore();" onMouseOver="MM_swapImage('Image13','','/~AsaProgram_chatty/asapro2/admin/image/ko/21_.gif',1);"><img src="/~AsaProgram_chatty/asapro2/admin/image/ko/21.gif" border="0" name="Image13" ></a></td>
+			<td><img src='/image/99.gif' width='14' height='60'></td>
+		</tr>
+		</table></div>
+
+		<script language='javascript'>
+		<!--
+		function AsaProTopmenu_show_layer(div_name) {
+			var layer_fr = eval("document.all."+div_name);
+			layer_fr.style.visibility = "visible";
+		}
+
+		function AsaProTopmenu_hidden_layer(div_name) {
+			var layer_fr = eval("document.all."+div_name);
+			layer_fr.style.visibility = "hidden";
+		}
+		function AsaProTopmenu_out_layer() {
+			document.all.AsaProTopmenuLayer1.style.visibility = "hidden";
+		}
+		//-->
+		</script>
+	</td>
+</tr>
+<tr>
+	<td>
+		<table border=0 align='right' cellpadding=0 cellspacing=0 id='AsaProTopmenuLayer1' width='98%' style='position:absolute; visibility:hidden;'>
+		<tr height="16" onmouseover='AsaProTopmenu_show_layer("AsaProTopmenuLayer1")' onMouseOut="AsaProTopmenu_out_layer()">
+			<td width='100%'></td>
+			<td align='right'><nobr><img src='/~AsaProgram_chatty/asapro/image/subTitleIcon01.gif' align='absmiddle'><a href='/mailAdmin/'>메일</a></nobr></td>
+			<td align='right'><nobr><img src='/~AsaProgram_chatty/asapro/image/subTitleIcon01.gif' align='absmiddle'><a href='/boardAdmin/'>게시판</a></nobr></td>
+			<td align='right'><nobr><img src='/~AsaProgram_chatty/asapro/image/subTitleIcon01.gif' align='absmiddle'><a href='/setup/'>초기환경</a></nobr></td>
+			<td align='right'><nobr><img src='/~AsaProgram_chatty/asapro/image/subTitleIcon01.gif' align='absmiddle'><a href='/rightAdmin/'>관리자권한</a></nobr></td>
+		</tr>
+		<tr> 
+			<td colspan="5" height='16' onmouseover='AsaProTopmenu_show_layer("AsaProTopmenuLayer1")' onMouseOut='AsaProTopmenu_out_layer()'>
+			</td>
+		</tr>
+		</table>
+
+		<table border='0' cellpadding='0' cellspacing='0' id='sub_none' style='position:absolute; display:none;'>
+		<tr>
+			<td></td>
+		</tr>
+		</table>
+
+		
+		<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td height='5'></td>
+		</tr>
+		</table>
+			</td></tr>
+</table>
+<style>
+	.hanTop{background: #deedd0;padding: 5px 15px;display: flex;align-items: center;}
+	.hanTop h3{margin: 0;margin-right: 100px;}
+	.hanTop > *{margin-right: 100px;font-size: 14px;}
+	.hanTop div > a{color: #0f63bd;font-size: 14px;}
+	.hanTop div > a:hover{text-shadow: 0 0 1px #0f63bd;}
+</style>
+<div class="hanTop">
+	<h3>AI 프로 개발 계정</h3>
+	<div><a href="#n" onclick="configreload();">https://dev.han.kr</a></div>
+	<div>AI로 만들어가는 프로들의 세상</div>
+</div>
+<script>
+function configreload() {
+	event.preventDefault();
+	location.reload();
+}
+</script>
+<script>
+jQuery(document).ready(function(){
+		if (jQuery('form[name="limitfrm"]').length || jQuery('select[name="limit_num"]').length) {  
+			jQuery('form[name="limitfrm"]').addClass('limitfrm');  
+			jQuery('select[name="limit_num"]').addClass('limitfrm');  
+		}  
+	var currentPath = window.location.pathname;
+	if (currentPath === '/chat/config_chat.htm') {  
+		jQuery(".study-box1 > .rt").addClass("previewBox");
+	}else if(currentPath === '/chat/chat_list.htm'){
+		jQuery("#chatbot-list").addClass("chatbot-list");
+	}
+	else if(currentPath === '/chat/chat_modify.htm' || currentPath === '/chat/chat_add.htm'){
+		jQuery(".chatbro-m").addClass("tableRespon");
+		jQuery("form").addClass("tableForm");
+		var lastTableRespon = jQuery(".tableForm .tableRespon").last();
+			if (lastTableRespon.length) {  
+				lastTableRespon.addClass("txtRespon");  
+			} 
+	}else if(currentPath === '/member/manage/info/list.htm' || currentPath === '/member/manage/info/wait.htm' || currentPath === '/member/manage/info/stop.htm' || currentPath === '/member/manage/info/out.htm' || currentPath === '/setup/admin/manage/list.htm' || currentPath === '/setup/admin/manage/out.htm' || currentPath === '/setup/admin/manage/wait.htm' || currentPath === '/setup/default/config/rights.htm' || currentPath === '/setup/admin/manage/setup.htm' || currentPath === '/setup/admin/manage/ip.htm'){
+			jQuery(window).on("load", function() {  
+				jQuery('.resOftableNews').find("td").each(function() {  
+					var cellValue = jQuery(this).text().trim();
+					if (cellValue === "해당하는 내용이 없습니다.") {  
+						jQuery(this).css({'width': '100%', "justify-content": "center"});  
+					}  
+				});  
+				// 초기 로드 시 로직 처리  
+				if (window.innerWidth <= 1024) {  
+					addHeaderToCells();  
+					if(jQuery(".resOftableNews tbody tr:first-child").find("td").hasClass("asmFieldText_list")){
+						jQuery(".asmFieldText_list").parent("tr").css({display: "none"});
+					}
+				} else {  
+					removeHeaderFromCells();  
+					if(jQuery(".resOftableNews tbody tr:first-child").find("td").hasClass("asmFieldText_list")){
+						jQuery(".asmFieldText_list").parent("tr").css({display: "table-row"});
+					}
+				}  
+			});  
+
+			// 창 크기 조정 시 로직 처리  
+			jQuery(window).on("resize", function() {  
+				if (window.innerWidth <= 1024) {  
+					// 헤더가 추가되지 않았을 때만 헤더 추가  
+					if (!jQuery(".resOftableNews tr").first().find('td').first().data('headerAdded')) {  
+						addHeaderToCells();  
+					}  
+					if(jQuery(".resOftableNews tbody tr:first-child").find("td").hasClass("asmFieldText_list")){
+						jQuery(".asmFieldText_list").parent("tr").css({display: "none"});
+					}
+				} else {  
+					removeHeaderFromCells();  
+					if(jQuery(".resOftableNews tbody tr:first-child").find("td").hasClass("asmFieldText_list")){
+						jQuery(".asmFieldText_list").parent("tr").css({display: "table-row"});
+					}
+				}  
+			});  
+
+			// 셀에 헤더 추가하는 함수  
+			function addHeaderToCells() {  
+				// 헤더의 값을 가져와 배열에 저장  
+				var headerValues = [];  
+				jQuery(".resOftableNews .asmFieldText_list").each(function(index) {  
+					if (index > 0) { // 첫 번째 체크박스 셀을 건너뜀  
+							var imgElement = jQuery(this).find('img'); 
+
+							if (imgElement.length) {  
+								var imgSrc = imgElement.attr('src');
+								headerValues.push(`<img src="jQuery{imgSrc}" alt="">`); 
+							} else {  
+								headerValues.push(jQuery(this).text().trim());  
+							}
+					}  
+				});  
+
+				// 각 행의 asmGText_list를 반복하며 해당 헤더 값을 삽입  
+				jQuery(".resOftableNews tr").slice(1).each(function() { // 두 번째 행부터 반복  
+					jQuery(this).find('td').each(function(index) {  
+						if (index > 0 && index < headerValues.length + 1) { // 첫 번째 체크박스를 건너뛰고, 인덱스가 범위 내에 있는지 확인  
+							var currentValue = jQuery(this).html(); // 현재 셀의 값 가져오기  
+							jQuery(this).data('originalValue', currentValue); // 원래 값 저장  
+							
+							// 헤더 값을 포함하여 텍스트 설정 (헤더를 굵게 처리)  
+							jQuery(this).html('<strong>' + headerValues[index - 1] + ':</strong> ' + currentValue); // 해당 헤더 값을 삽입  
+						}  
+					});  
+				});  
+
+				// 헤더가 추가되었음을 표시  
+				jQuery(".resOftableNews tr").first().find('td').first().data('headerAdded', true);  
+			}  
+
+			// 셀에서 헤더 내용을 삭제하는 함수  
+			function removeHeaderFromCells() {  
+				// 헤더 내용 삭제를 보장하기 위해 모든 헤더 정보를 삭제  
+				jQuery(".resOftableNews tr").slice(1).each(function() { // 두 번째 행부터 반복  
+					jQuery(this).find('td').each(function(index) {  
+						if (index > 0) { // 첫 번째 체크박스를 건너뛰고  
+							var cellText = jQuery(this).text(); // 현재 셀의 값 가져오기  
+							// 헤더 정보를 삭제하는 정규 표현식  
+								if (/[\u4e00-\u9fa5\uac00-\ud7ff]/.test(cellText)) {  
+									jQuery(this).text(cellText.replace(/^[^:]*:\s*/, ''));   
+								}  
+						}  
+					});  
+				});  
+
+				// 헤더가 삭제되었음을 표시  
+				jQuery(".resOftableNews tr").first().find('td').first().data('headerAdded', false);  
+			}
+	}
+});
+</script>
+<table width=100% cellpadding=0 cellspacing=0 border=0>
+<tr>
+	<td valign="top">
+		<table width=100% cellpadding=0 cellspacing=0 border=0 class="mAlls">
+		<tr>
+			<td width=161 valign="top" class="ipetleft">
+			    			<script language="javascript">
+			function findObj(theObj, theDoc){//배열 형식inout name을 처리하기위하여
+				var p, i, foundObj;
+				if(!theDoc) theDoc = document;
+
+				if((p = theObj.indexOf("?")) > 0 && parent.frames.length){
+					theDoc = parent.frames[theObj.substring(p+1)].document;
+					theObj = theObj.substring(0,p); 
+				}
+				if(!(foundObj = theDoc[theObj]) && theDoc.all) 
+					foundObj = theDoc.all[theObj]; 
+
+				for (i=0; !foundObj && i < theDoc.forms.length; i++)
+					foundObj = theDoc.forms[i][theObj];
+
+				for(i=0; !foundObj && theDoc.layers && i < theDoc.layers.length; i++)
+					foundObj = findObj(theObj,theDoc.layers[i].document);
+
+				if(!foundObj && document.getElementById) 
+					foundObj = document.getElementById(theObj);
+
+				return foundObj;
+			}
+
+			function image_upload_resize_check(form_name, input_name){
+
+				if(typeof(form_name) == "string"){
+					var obj = findObj(input_name,eval("document."+form_name));
+				}else{
+					var obj = findObj(input_name,"");
+				}
+				var text_value = obj.value;
+				if(obj.value != ""){
+					if(/\.jpg$|.gif$|.GIF|.JPG$|.png|.PNG/.test(text_value)){
+						return true;
+					}else{
+						alert("이미지 파일만 올릴 수 있습니다.");
+						if(obj.attachEvent){
+							obj.outerHTML = obj.outerHTML;
+							//obj.attachEvent("onchange",new Function("image_upload_resize_check('"+form_name+"','"+input_name+"')")); 
+						}else{
+							obj.value='';
+							//obj.addEventListener("change",new Function("image_upload_resize_check('"+form_name+"','"+input_name+"')")); 
+						}
+						return false;
+					}
+				}
+			}
+
+			function image_upload_resize_check2(input_id){//아이디를 사용하여 이미지파일인지 체크
+				image_upload_resize_check(document.getElementById(input_id).form.name, document.getElementById(input_id).name);
+			}
+			</script><script type="text/javascript">
+function logOut()
+{
+	location.href = '/member/logout.php?action=asmUserLogOut&bn=';
+}
+	function msn_on(msn_url){
+			if(msn_url ==undefined){
+				alert('도메인을 입력해주세요');
+				}
+			}
+
+/*	function msn_ope(msn_url,m_url,mnum){
+		$.get('~AsaProgram/module/adminmanage/php/pop.php',{'msn_url' : msn_url , 'm_url' : m_url ,'m_num' : mnum},openadd);
+						
+	}
+	function openadd(add)
+	{
+		alert(add);
+		return false;
+		window.open (m_url+'/login.htm?url='+msn_url+'&rand='+Math.random(), 'newwindow', 'height='+mh+', width='+mw+', top=300,left=200, toolbar=no,  menubar=no, scrollbars=no, resizable=yes,location=no, status=no');
+	}*/
+
+var reg_pop={
+	action : function (msn_url,m_url,mnum){
+	
+			window.open (m_url+'/login.htm?url='+msn_url+'&rand='+Math.random(), 'newwindow', 'height=400, width=500, top=300,left=200, toolbar=no,  menubar=no, scrollbars=no, resizable=yes,location=no, status=no');
+	}
+};
+</script>
+<style>#img_ico{display:none;}</style>
+	
+	<table cellpadding='0' cellspacing='0' border='0' width='157' height='103' align='center'>
+	<tr>
+		<td width='15' valign='top' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_leftbg.gif'><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_topleft.gif'></td>
+		<td align='center' bgcolor='#f2f2f2' rowspan='2'>
+			<table cellpadding='0' cellspacing='0' border='0' width='100%' border=0 height='100%'>
+			<tr>
+				<td height='7' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_topbg.gif'></td></tr>
+			<tr>
+				<td>
+				<input type='hidden' name='whereIsAsaMember' value=''>
+
+
+				<table border='0' cellpadding='0' cellspacing='0' width='100%' height='100%'>
+				<tr>
+					<td rowspan='2' align='center' valign='middle' style='padding:1px;height:85px;'>
+						<img src='/imageup/admin/asadal.png' width='60' height='60' border='0' class='member_img'>
+					</td>
+					<td align='center' class='asmFieldText_userLogWindow' style='padding:5px 0px;'><img src='/~AsaProgram_chatty/module/adminmanage/image/Untitled-1.png' border=0 id='img_ico' align='left' onclick='reg_pop.action("","/setup/admin/manage","13")' ><b>아사달</b></td>
+				</tr>
+				<tr>
+					<td style='padding:0 0 0 3px'>
+						<table border='0' cellpadding='0' cellspacing='0' width='100%'>
+							<tr>
+								<td align='center' style='padding:0 0 0 0'>
+									<a href='/setup/admin/manage/modify.htm?AsaProNum=13' class='asmText_a' target=''><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/ko/modify_2.gif' border=0></a>
+								</td>
+							</tr>
+							<tr>
+								<td align='center' style='padding:0 0 0 0'>
+									<a href='javascript:logOut();'><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/ko/out_2.gif' border='0'></a>
+								</td>
+							</tr>												
+						</table>
+					</td>
+				</tr>				
+				</table>
+
+			
+				</td>
+			</tr>
+			<tr>
+				<td height='7' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_endbg.gif'></td>
+			</tr>
+			</table>
+		</td>
+		<td width='15' valign='top' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_rightbg.gif'><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_topright.gif'></td>
+	</tr>
+	<tr>
+		<td valign='bottom' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_leftbg.gif'><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_endleft.gif'></td>
+		<td valign='bottom' background='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_rightbg.gif'><img src='/~AsaProgram_chatty/module/adminmanage/image/adminasapro/loginbox_endright.gif'></td>
+	</tr>
+	</table>
+	
+	<table>
+<tr>
+	<td height="5px">
+	</td>
+</tr>
+</table>
+<table border='0' cellpadding='0' cellspacing='0' width='96%' align='center' bgcolor='#deedd0'>
+	<tr>
+	<td  rowspan='2' width="3"></td>
+	<!--  left title부분  -->
+	<td style='background:url("/image/left_bg_01.gif") repeat-y'>
+		<table border='0' cellspacing='0' cellpadding='0' width='162' style="background:url('/image/left_text01_top.gif') no-repeat;">
+			<tr><td height='5' align='center'></td></tr>
+				<tr><td height='20' align="center"><img src='/image/text_01_04.gif' border='0'></td></tr>
+		</table>
+		<table border='0' cellspacing='0' cellpadding='0' align="center" width='95%' class="left-important">
+		<tr><td width="1"></td></tr>
+<!-- 		<tr><td height='24' bgcolor='#D8E6C3'><img src='/~AsaProgram/asapro/image/i.gif' align='absmiddle'>AI 프로</td></tr> -->
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/chatting.htm?if_head=0&if_btn=1">AI 채팅</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/doc_summary.htm">AI 문서</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/text_trans.htm">AI 번역</a></td></tr>
+		<tr><td width="1"></td></tr>
+		<tr><td height='24' bgcolor='#D8E6C3'><img src='/~AsaProgram/asapro/image/i.gif' align='absmiddle'>학습관리</td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/text.htm">텍스트학습</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/file.htm">파일학습</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/homepage.htm">홈페이지학습</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/category.htm">분류관리</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/memory.htm">기억관리</a></td></tr>
+		<tr><td width="1"></td></tr>
+		<tr><td height='24' bgcolor='#D8E6C3'><img src='/~AsaProgram/asapro/image/i.gif' align='absmiddle'>챗봇관리</td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/chatlog.htm">사용기록</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/chat_list.htm">챗봇관리</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/chat/config.htm">챗봇환경설정</a></td></tr>
+		<tr><td width="1"></td></tr>
+		<tr><td height='24' bgcolor='#D8E6C3'><img src='/~AsaProgram/asapro/image/i.gif' align='absmiddle'>환경설정</td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/member/manage/info/list.htm">회원관리</a></td></tr>
+		<tr><td height='22' bgcolor='#FFFFFF'><img src='/~AsaProgram/asapro/image/menuicon02.gif' align='absmiddle'><a href="/setup/admin/manage/list.htm">관리자관리</a></td></tr>
+		<tr><td height='3' bgcolor='#D8E6C3'></td></tr>
+		</table>
+	</td>
+</tr>
+</table>
+<table  border='0' cellspacing='0' cellpadding='0' align="center" width='95%'>
+	<tr>
+		<td><a href="javascript:;" class="chatl-btn" id="openWindow" style="display:flex;border:1px solid #e6edf8;background:#f3fbfc;margin-top:10px;height: 22px;align-items:center;justify-content:center;padding:3px 0;border-radius:50px;box-shadow:0 0 5px #ccc;font-weight:bold;font-size:14px;" title=""><img src="/chat/default.png" alt="" style="width: auto;height: 15px;margin-right: 5px;">채팅</a></td>
+	</tr>
+</table>
+<script>
+	var img2 = $(".chatl-btn img");  
+	var lW2 = img2.width();  
+	var lH2 = img2.height();  
+	if (lW2 < 22) {  
+		var newHeightaa = lH2 * 1.5;  
+		img2.css({height: newHeightaa});  
+	}
+</script>
+<script src="/chat/js/chat.js?v=20250324"></script>			</td>
+			<td width=14 bgcolor=#ffffff class='mNo'></td>
+			<td valign="top" align="left" class='mWidthMax'>
+			<!-- title 바 시작 //-->
+<table width="99%" cellpadding=0 cellspacing=0 border=0>
+<tr><td height=12 bgcolor="#FFFFFF"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=1></td></tr>
+<tr><td height=1 bgcolor="#D9D9D9"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=1></td></tr>
+<tr><td height=5 bgcolor="#ffffff"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=3></td></tr>
+<tr><td height=13>
+<table cellpadding=0 cellspacing=0 border=0>
+<tr>
+	<td><img src="/~AsaProgram/asapro/image/ii.gif" align="absmiddle"><b>AI 번역</b> | &nbsp;</td>
+	<td>
+		<table cellspacing=0 cellpadding=0 border=0>
+<img src='/~AsaProgram/asapro/image/i2.gif' align='absmiddle'><a href='/chat/text_trans.htm'><b> 텍스트 번역 </b></a><img src='/~AsaProgram/asapro/image/i2.gif' align='absmiddle'><a href='image_trans.htm'> 이미지 번역 </a><img src='/~AsaProgram/asapro/image/i2.gif' align='absmiddle'><a href='file_trans.htm'> 파일 번역 </a><img src='/~AsaProgram/asapro/image/i2.gif' align='absmiddle'><a href='homepage_trans.htm'> 홈페이지 번역 </a>		</td></tr>
+		</table>
+	</td>
+</tr>
+</table>
+<tr><td height=2 bgcolor="#F7F7F7"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=2></td></tr>
+<tr><td height=2 bgcolor="#EAEAEA"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=2></td></tr>
+<tr><td height=1 bgcolor="#FFFFFF"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=1></td></tr>
+<tr><td height=1 bgcolor="#B6B6B6"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=1></td></tr>
+<tr><td height=5><img src="/~AsaProgram/asapro2/admin/image/d.gif"></td></tr>
+<tr><td height=6 bgcolor="#FFFFFF"><img src="/~AsaProgram/asapro2/admin/image/b.gif" width=1 height=1></td></tr>
+</table>
+
+<!-- title 바 끝 //-->
+
+<link rel="stylesheet" href="./css/style.css">
+<script language="javascript" src="./js/js.js"></script>
+<script language="javascript" src="./js/ai.js"></script>
+<!-- chat S -->
+
+<style>
+.language-bar {display:flex;gap:10px;align-items:center;margin-bottom:15px;}
+.swap-btn {font-size: 20px;color: #fff;border:none;padding:8px 30px;border-radius:5px;cursor:pointer;transition:0.3s;background: #007BFF;}
+.swap-btn i{font-style: normal;transform: rotate(90deg);display: inline-block;}
+.swap-btn:hover {background:#0f63bd;}
+.translate-btn {background:#007BFF;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;transition:0.3s;}
+.translate-btn:hover {background:#0056b3;}
+.speak-btn,.copy-btn,.stop-btn {background:#007BFF;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;transition:0.3s;}
+.speak-btn img,.copy-btn img,.stop-btn img{width: 20px;}
+.speak-btn:hover,.copy-btn:hover,.stop-btn:hover {background:#0f63bd;}
+.stop-btn:disabled { opacity: 0.5; cursor: not-allowed;}
+.speak-btn[disabled] { opacity: 0.5; cursor: not-allowed;}
+select {padding:8px;border:1px solid #ccc;border-radius:4px;}
+.text-boxes {display:flex;gap:15px;}
+.text-boxes > div{border:1px solid #ccc;padding: 10px;padding-bottom: 30px;border-radius :4px;box-shadow: 0 0 10px #e0e0e0;align-self: flex-start;}
+.textarea {flex:1;padding:12px;border:1px solid #ccc;border-radius:8px;resize:none;font-size:19px;width: 100%;height: auto;min-height: 300px;transition: height 0.2s;resize: none;overflow: hidden;margin-top:10px;box-sizing: border-box;}
+#targetText {background:#f8f9fa;}
+.button-group {position:absolute;bottom:16px;left:10px;display:flex;gap:5px;}
+.language-selector {display:flex;}
+.language-selector li, .language-selector ul{list-style:none;padding: 0;margin: 0;}
+.language-selector div.selected {cursor:pointer;padding:10px;border:1px solid #ccc;width: 151px;padding-right: 25px;position:relative;}
+.language-selector div.selected::after{content:"";background:#fff url(./images/sub_layout_06.gif) no-repeat center center;position: absolute;right: 10px;top:calc(50% - 2px);width: 7px;height:4px;}
+.language-selector div.selected.on::after{transform: rotate(180deg);}
+.language-selector .dropdown {position:absolute;top:39px;background-color:white;border:1px solid #ccc;z-index: 1000;display:none;width:100%;box-sizing:border-box;padding: 10px;max-height: 300px;overflow-x: hidden;overflow-y: auto;min-width: 300px;}
+#selectSourceLang .refreshBtn{margin-left: 10px;display: flex;align-items: center;}
+#selectSourceLang .refreshBtn #refreshLink{display: flex;}
+#selectSourceLang .refreshBtn #refreshLink img{margin-right: 5px;width:19px;height:19px;}
+.dropdown li {padding:8px;cursor:pointer;float:left;width: calc(100% / 4);padding: 12px 15px;box-sizing: border-box;transition:0.3s;white-space: nowrap;}
+.dropdown li[style*="font-weight: 700"]{border-radius:4px;padding:12px 15px!important;}
+.dropdown li:hover {background-color:#f0f0f0;border-radius: 3px;}
+.dropdown li div[style*=border-top]{pointer-events:none;}
+.char-count { font-size: 14px; color: gray; text-align: left;padding-left: 307px;display: flex;align-items: end;height: 36px;}  
+.char-count span{margin-left:5px;display: inline-block;}
+.selected { font-weight: bold; }  
+.dropdown li.selected { background: #007bff url(./images/yes.png) no-repeat right center;color: #fff !important; background-size: 30px ;}
+.dropdown li.disabled {color: #ccc;pointer-events: none;}
+.dropdown li.disabled:hover {cursor: no-drop;}
+.sChange{display:flex;justify-content: space-between;}
+.dropdown li.dropdown-separator{border-top: 2px solid #f0f0f0; margin: 5px 0 !important; padding: 0;width: 100% !important;}
+/* 검색창 스타일 */
+.search-input { width: calc(100% - 20px); margin: 10px; padding: 8px !important; border: 1px solid #ccc; border-radius: 4px;height: 30px;outline: none;}
+/* 드롭다운 스크롤 및 최대 높이 설정 */
+.dropdown {max-height: 300px; overflow-y: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+#translateBtn{height: 36px;padding: 0 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;position: absolute;bottom: 16px;right: 10px}
+/* 오류 메시지 스타일 */
+.error-message{position:fixed;bottom:20px;right:20px;background:#ffebee;border:1px solid #ffcdd2;padding:15px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.1);z-index:1000}
+.error-message p{margin:0 0 10px 0;color:#c62828}
+.retry-btn{background:#d32f2f;color:#fff;border:none;padding:8px 15px;border-radius:4px;cursor:pointer;transition:background .3s}
+.retry-btn:hover{background:#b71c1c}
+
+.volume-control{display:flex;align-items:center;gap:5px;}
+.volume-slider{width:80px;height:5px;background:#ccc;border-radius:5px;outline:0;-webkit-appearance:none;}
+.volume-slider::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;background:#007bff;border-radius:50%;cursor:pointer;}
+.volume-icon{width:20px!important;height:20px!important;filter:invert(50%);}
+.volume-toast{position:fixed;bottom:30px;right:30px;padding:12px 24px;background:rgba(0,123,255,.9);color:#fff;border-radius:25px;box-shadow:0 4px 15px rgba(0,0,0,.2);font-family:Arial,sans-serif;font-size:16px;opacity:0;animation:fadeInOut 1s ease;z-index:1000;}
+@keyframes fadeInOut {
+	0% { opacity: 0; transform: translateY(20px); }
+	20% { opacity: 1; transform: translateY(0); }
+	80% { opacity: 1; transform: translateY(0); }
+	100% { opacity: 0; transform: translateY(-20px); }
+}
+</style>
+<div class="gwiChat-all">
+	<!-- S -->
+	<h3 class="h3-title">챗봇 선택
+		<select name="chat_bot" id="chat_bot"><option value="f4c1dbba-9cfa-40a0-ad79-e42464b37f96">웹검색 테스트</option><option value="6c1e1e0a-5d24-4b67-9547-c4b8b4eaa05b">동파 테스트1</option><option value="d6b6c935-25a0-4ae7-8949-e2abb948ce40">채팅 테스트</option><option value="deeeb8ec-4f25-4c53-8237-ba76dba2661b">장기기억 테스트</option><option value="69621793-a510-4e5c-90f2-afb4a0b0b623" selected>챗봇 테스트</option></select><script>
+			document.addEventListener('DOMContentLoaded', function() {
+				var selectElement = document.getElementById('chat_bot');
+
+				selectElement.addEventListener('change', function() {
+					var selectedValue = this.value;
+					setCookie('chat_bot', encodeURIComponent(selectedValue));
+					var newUrl = window.location.origin + window.location.pathname + '?chat_bot=' + encodeURIComponent(selectedValue);
+					var urlParams = new URLSearchParams(window.location.search);
+					if (urlParams.has('m')) {
+						newUrl += '&m=' + encodeURIComponent(urlParams.get('m'));
+					}
+					window.location.href = newUrl;
+				});
+			});
+			function setCookie(name, value) {
+				var expires = '';
+				var date = new Date();
+				date.setTime(date.getTime() + (60 * 60 * 24 * 1000));
+				expires = '; expires=' + date.toUTCString();
+				document.cookie = name + '=' + value + expires + '; path=/';
+			}
+		</script>	</h3>
+	<div class="container">
+		<div class="language-bar">
+			<input type="hidden" id="sourceLang" value="auto">
+			<input type="hidden" id="targetLang" value="ko">
+
+			<!-- <button class="translate-btn" onclick="translate()">번역</button>   -->
+		</div>
+		<div class="text-boxes">
+			<div style="flex: 1; position: relative;">
+				<div class="sChange">
+					<div id="selectSourceLang" class="language-selector">
+						<div class="selected" onclick="toggleDropdown('sourceLangDropdown')">자동감지</div>
+						<div id="sourceLangDropdown" class="dropdown" style="display:none;">
+							<input type="text" class="search-input" placeholder="언어 검색하기" onkeyup="filterLanguages(this, 'source')">
+						</div>
+						<div class="refreshBtn"><a href="#n" id="refreshLink"><img src="/~AsaProgram/module/member/image/index/main_table_icon.gif" border="0" title="새로고침" style="cursor:hand"> <span>새로 고침</span></a></div>
+					</div>
+					
+					<button class="swap-btn" onclick="swapLanguages()"><i>⇅</i></button>
+				</div>
+				<textarea id="sourceText" placeholder="번역할 내용을 입력하세요" class="textarea" maxlength="5000"></textarea>
+				<div class="char-count">글자수 : <span id="charCount">0</span>/5000</div>
+				<div class="button-group">
+					<button class="speak-btn" onclick="controlSpeech('play', 'sourceText')" title="재생"><img src="./images/icon-play.png" alt="재생"></button>
+					<button class="stop-btn" onclick="controlSpeech('pause', 'sourceText')" title="일시정지"><img src="./images/icon-pause.png" alt="일시정지"></button>
+					<button class="stop-btn" onclick="controlSpeech('stop', 'sourceText')" title="중지"><img src="./images/icon-stop.png" alt="중지"></button>
+					<div class="volume-control">
+						<input type="range" class="volume-slider" data-area="source" min="0" max="1" step="0.1" value="1">
+					</div>
+					<button class="copy-btn" onclick="copyText('sourceText')" title="복사"><img src="./images/icon-copy.png" alt="복사"></button>
+				</div>
+				<button id="translateBtn">번역하기</button>
+			</div>
+			<div style="flex: 1; position: relative;">
+				<div id="selectTargetLang" class="language-selector">
+					<div class="selected" onclick="toggleDropdown('targetLangDropdown')">한국어</div>
+					<div id="targetLangDropdown" class="dropdown" style="display:none;">
+						<input type="text" class="search-input" placeholder="언어 검색하기" onkeyup="filterLanguages(this, 'target')">
+					</div>
+				</div>
+				<textarea id="targetText" placeholder="번역 결과" class="textarea" maxlength="5000"></textarea>
+				<div class="char-count">글자수 : <span id="charCount2">0</span>/5000</div>
+				<div class="button-group">
+					<button class="speak-btn" onclick="controlSpeech('play', 'targetText')" title="재생"><img src="./images/icon-play.png" alt="재생"></button>
+					<button class="stop-btn" onclick="controlSpeech('pause', 'targetText')" title="일시정지"><img src="./images/icon-pause.png" alt="일시정지"></button>
+					<button class="stop-btn" onclick="controlSpeech('stop', 'targetText')" title="중지"><img src="./images/icon-stop.png" alt="중지"></button>
+					<div class="volume-control">
+						<input type="range" class="volume-slider" data-area="target" min="0" max="1" step="0.1" value="1">
+					</div>
+					<button class="copy-btn" onclick="copyText('targetText')" title="복사"><img src="./images/icon-copy.png" alt="복사"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// 언어 코드 매핑 객체
+		const languageCodeMap = {
+			'gl': "갈리시아어",
+			'el': "그리스어",
+			'gu': "구자라티어",
+			'nl': "네덜란드어",
+			'ne': "네팔어",
+			'nb': "노르웨이어(부크몰)",
+			'nn': "노르웨이어(니노르스크)",
+			'ny': "니얀자어",
+			'da': "덴마크어",
+			'de': "독일어",
+			'la': "라틴어",
+			'lb': "룩셈부르크어",
+			'lo': "라오어",
+			'lt': "리투아니아어",
+			'lv': "라트비아어",
+			'ro': "루마니아어",
+			'ru': "러시아어",
+			'mg': "말가시어",
+			'mi': "마오리어",
+			'mk': "마케도니아어",
+			'ml': "말라얄람어",
+			'mr': "마라티어",
+			'ms': "말레이어",
+			'mt': "몰타어",
+			'mn': "몽골어",
+			'be': "벨라루스어",
+			'bg': "불가리아어",
+			'bn': "벵골어",
+			'bs': "보스니아어",
+			'eu': "바스크어",
+			'my': "버마어",
+			'vi': "베트남어",
+			'ceb': "세부아노",
+			'es': "스페인어",
+			'gd': "스코틀랜드 게일어",
+			'sd': "신디어",
+			'si': "신할라어",
+			'sk': "슬로바키아어",
+			'sl': "슬로베니아어",
+			'sm': "사모아어",
+			'sn': "쇼나어",
+			'so': "소말리어",
+			'sr': "세르비아어",
+			'st': "소토어",
+			'su': "순다어",
+			'sv': "스웨덴어",
+			'sw': "스와힐리어",
+			'af': "아프리칸스",
+			'ar': "아랍어",
+			'az': "아제르바이잔어",
+			'ga': "아일랜드어",
+			'ht': "아이티 크리올어",
+			'hy': "아르메니아어",
+			'is': "아이슬란드어",
+			'sq': "알바니아어",
+			'eo': "에스페란토",
+			'et': "에스토니아어",
+			'en': "영어",
+			'uk': "우크라이나어",
+			'ur': "우르두어",
+			'uz': "우즈베크어",
+			'ig': "이그보어",
+			'it': "이탈리아어",
+			'yi': "이디시어",
+			'id': "인도네시아어",
+			'ja': "일본어",
+			'am': "암하릭",
+			'yo': "요루바어",
+			'cy': "웨일스어",
+			'jv': "자바어",
+			'ka': "조지아어",
+			'zh-Hans': "중국어",
+			'zh-Hant': "중국어(번체)",
+			'zu': "줄루어",
+			'cs': "체코어",
+			'ca': "카탈루냐어",
+			'co': "코르시카어",
+			'hr': "크로아티아어",
+			'kk': "카자흐어",
+			'km': "크메르어",
+			'kn': "칸나다어",
+			'ku': "쿠르드어",
+			'ky': "키르기스어",
+			'xh': "코사어",
+			'ta': "타밀어",
+			'te': "텔루구어",
+			'tg': "타지크어",
+			'th': "태국어",
+			'tr': "터키어",
+			'fa': "페르시아어",
+			'fi': "핀란드어",
+			'fil': "필리핀어",
+			'fr': "프랑스어",
+			'fy': "프리지아어",
+			'pa': "펀자브어",
+			'pl': "폴란드어",
+			'ps': "파슈토어",
+			'pt': "포르투갈어",
+			'ha': "하우사어",
+			'haw': "하와이언어",
+			'hi': "힌디어",
+			'hu': "헝가리어",
+			'he': "히브리어",
+			'ko': "한국어"
+		};
+
+		const languageCodeToBCP47 = {
+			'gl': 'gl-ES', // 갈리시아어
+			'el': 'el-GR', // 그리스어
+			'gu': 'gu-IN', // 구자라티어
+			'nl': 'nl-NL', // 네덜란드어
+			'ne': 'ne-NP', // 네팔어
+			'nb': 'nb-NO', // 노르웨이어(부크몰)
+			'nn': 'nn-NO', // 노르웨이어(니노르스크)
+			'ny': 'ny-MW', // 니얀자어
+			'da': 'da-DK', // 덴마크어
+			'de': 'de-DE', // 독일어
+			'la': 'la-VA', // 라틴어
+			'lb': 'lb-LU', // 룩셈부르크어
+			'lo': 'lo-LA', // 라오어
+			'lt': 'lt-LT', // 리투아니아어
+			'lv': 'lv-LV', // 라트비아어
+			'ro': 'ro-RO', // 루마니아어
+			'ru': 'ru-RU', // 러시아어
+			'mg': 'mg-MG', // 말가시어
+			'mi': 'mi-NZ', // 마오리어
+			'mk': 'mk-MK', // 마케도니아어
+			'ml': 'ml-IN', // 말라얄람어
+			'mr': 'mr-IN', // 마라티어
+			'ms': 'ms-MY', // 말레이어
+			'mt': 'mt-MT', // 몰타어
+			'mn': 'mn-MN', // 몽골어
+			'be': 'be-BY', // 벨라루스어
+			'bg': 'bg-BG', // 불가리아어
+			'bn': 'bn-BD', // 벵골어
+			'bs': 'bs-BA', // 보스니아어
+			'eu': 'eu-ES', // 바스크어
+			'my': 'my-MM', // 버마어
+			'vi': 'vi-VN', // 베트남어
+			'ceb': 'ceb-PH', // 세부아노
+			'es': 'es-ES', // 스페인어
+			'gd': 'gd-GB', // 스코틀랜드 게일어
+			'sd': 'sd-PK', // 신디어
+			'si': 'si-LK', // 신할라어
+			'sk': 'sk-SK', // 슬로바키아어
+			'sl': 'sl-SI', // 슬로베니아어
+			'sm': 'sm-WS', // 사모아어
+			'sn': 'sn-ZW', // 쇼나어
+			'so': 'so-SO', // 소말리어
+			'sr': 'sr-RS', // 세르비아어
+			'st': 'st-LS', // 소토어
+			'su': 'su-ID', // 순다어
+			'sv': 'sv-SE', // 스웨덴어
+			'sw': 'sw-TZ', // 스와힐리어
+			'af': 'af-ZA', // 아프리칸스
+			'ar': 'ar-SA', // 아랍어
+			'az': 'az-AZ', // 아제르바이잔어
+			'ga': 'ga-IE', // 아일랜드어
+			'ht': 'ht-HT', // 아이티 크리올어
+			'hy': 'hy-AM', // 아르메니아어
+			'is': 'is-IS', // 아이슬란드어
+			'sq': 'sq-AL', // 알바니아어
+			'eo': 'eo-EO', // 에스페란토
+			'et': 'et-EE', // 에스토니아어
+			'en': 'en-US', // 영어
+			'uk': 'uk-UA', // 우크라이나어
+			'ur': 'ur-PK', // 우르두어
+			'uz': 'uz-UZ', // 우즈베크어
+			'ig': 'ig-NG', // 이그보어
+			'it': 'it-IT', // 이탈리아어
+			'yi': 'yi-IL', // 이디시어
+			'id': 'id-ID', // 인도네시아어
+			'ja': 'ja-JP', // 일본어
+			'am': 'am-ET', // 암하릭
+			'yo': 'yo-NG', // 요루바어
+			'cy': 'cy-GB', // 웨일스어
+			'jv': 'jv-ID', // 자바어
+			'ka': 'ka-GE', // 조지아어
+			'zh-Hans': 'zh-CN', // 중국어(간체)
+			'zh-Hant': 'zh-TW', // 중국어(번체)
+			'zu': 'zu-ZA', // 줄루어
+			'cs': 'cs-CZ', // 체코어
+			'ca': 'ca-ES', // 카탈루냐어
+			'co': 'co-FR', // 코르시카어
+			'hr': 'hr-HR', // 크로아티아어
+			'kk': 'kk-KZ', // 카자흐어
+			'km': 'km-KH', // 크메르어
+			'kn': 'kn-IN', // 칸나다어
+			'ku': 'ku-TR', // 쿠르드어
+			'ky': 'ky-KG', // 키르기스어
+			'xh': 'xh-ZA', // 코사어
+			'ta': 'ta-IN', // 타밀어
+			'te': 'te-IN', // 텔루구어
+			'tg': 'tg-TJ', // 타지크어
+			'th': 'th-TH', // 태국어
+			'tr': 'tr-TR', // 터키어
+			'fa': 'fa-IR', // 페르시아어
+			'fi': 'fi-FI', // 핀란드어
+			'fil': 'fil-PH', // 필리핀어
+			'fr': 'fr-FR', // 프랑스어
+			'fy': 'fy-NL', // 프리지아어
+			'pa': 'pa-IN', // 펀자브어
+			'pl': 'pl-PL', // 폴란드어
+			'ps': 'ps-AF', // 파슈토어
+			'pt': 'pt-PT', // 포르투갈어
+			'ha': 'ha-NG', // 하우사어
+			'haw': 'haw-US', // 하와이언어
+			'hi': 'hi-IN', // 힌디어
+			'hu': 'hu-HU', // 헝가리어
+			'he': 'he-IL', // 히브리어
+			'ko': 'ko-KR'  // 한국어
+		};
+
+		// 드롭다운 동적 생성 함수 수정
+		function populateLanguageDropdowns() {
+			const preferredLanguages = {
+				source: ['auto', 'ko', 'en', 'zh-Hans'],
+				target: ['ko', 'en', 'zh-Hans', 'ja']
+			};
+
+			const createDropdown = (type) => {
+				const dropdown = document.getElementById(`${type}LangDropdown`);
+				dropdown.innerHTML = `
+					<input type="text" class="search-input" 
+						 placeholder="언어 검색하기" 
+						 onkeyup="filterLanguages(this, '${type}')">
+				`;
+
+				// 선호 언어 추가 (굵은 글씨)
+				preferredLanguages[type].forEach(code => {
+					const li = document.createElement('li');
+					li.textContent = code === 'auto' ? '자동감지' : languageCodeMap[code];
+					li.style.fontWeight = '700'; // 굵은 글씨
+					li.onclick = () => selectLanguage(type, code, li);
+					dropdown.appendChild(li);
+				});
+
+				// 구분선 추가
+				const separator = document.createElement('li');
+				separator.className = 'dropdown-separator';
+				dropdown.appendChild(separator);
+
+				// 전체 언어 목록 추가
+				Object.entries(languageCodeMap).forEach(([code, name]) => {
+					const li = document.createElement('li');
+					li.textContent = name;
+					li.onclick = () => selectLanguage(type, code, li);
+					dropdown.appendChild(li);
+				});
+			};
+
+			createDropdown('source');
+			createDropdown('target');
+		}
+
+		// LI 요소 생성 함수
+		function createLanguageItem(type, code, name) {
+			const li = document.createElement('li');
+			li.textContent = name;
+			li.dataset.code = code; // 데이터 속성 추가
+			li.onclick = function() {
+				selectLanguage(type, code, this);
+			};
+			return li;
+		}
+
+		// 언어 필터링 함수
+		function filterLanguages(input, type) {
+			const filter = input.value.toLowerCase();
+			const dropdown = document.getElementById(`${type}LangDropdown`);
+			const items = dropdown.querySelectorAll('li:not(.dropdown-separator)'); // 구분선 제외
+
+			items.forEach(item => {
+				const text = item.textContent.toLowerCase();
+				// 선호 언어와 일반 언어 모두 검색 적용
+				item.style.display = text.includes(filter) ? 'block' : 'none';
+				
+				// 검색어 강조 표시
+				if(filter && text.includes(filter)) {
+					const regex = new RegExp(`(${filter})`, 'gi');
+					item.innerHTML = item.textContent.replace(regex, '<mark>$1</mark>');
+				} else {
+					item.innerHTML = item.textContent; // 원상복구
+				}
+			});
+		}
+
+		// 드롭다운 함수
+		function toggleDropdown(dropdownId) {
+			const dropdown = document.getElementById(dropdownId);
+			const isOpen = dropdown.style.display === 'block';
+
+			document.querySelectorAll('.dropdown').forEach(d => {
+				d.style.display = 'none';
+				d.previousElementSibling.classList.remove('on');
+				d.querySelector('.search-input').value = ''; // 검색어 초기화
+				filterLanguages({value: ''}, dropdownId.includes('source') ? 'source' : 'target'); // 필터 초기화
+			});
+
+			if (!isOpen) {
+				dropdown.style.display = 'block';
+				dropdown.querySelector('.search-input').focus();
+				dropdown.previousElementSibling.classList.add('on');
+			}
+		}
+
+		function selectLanguage(type, lang, element) {
+			console.log(type);console.log(lang);console.log(element);
+			// 숨겨진 입력 값 업데이트
+			if (type === 'source') {
+				// 현재 선택된 타겟 언어와 동일한 언어가 선택된 경우 스위치
+				if (lang === document.querySelector('#targetLang').value) {
+					const currentTargetLang = document.querySelector('#targetLang').value;
+					document.querySelector('#targetLang').value = lang;
+					document.querySelector('#sourceLang').value = currentTargetLang;
+					document.querySelector('#selectTargetLang .selected').innerText = languageCodeMap[currentTargetLang];
+				} else {
+					document.querySelector('#sourceLang').value = lang;
+					document.querySelector('#selectSourceLang .selected').innerText = element.innerText;
+				}
+			} else {
+				// 현재 선택된 소스 언어와 동일한 언어가 선택된 경우 스위치
+				if (lang === document.querySelector('#sourceLang').value) {
+					const currentSourceLang = document.querySelector('#sourceLang').value;
+					document.querySelector('#sourceLang').value = lang;
+					document.querySelector('#targetLang').value = currentSourceLang;
+					document.querySelector('#selectSourceLang .selected').innerText = languageCodeMap[currentSourceLang];
+				} else {
+					document.querySelector('#targetLang').value = lang;
+					document.querySelector('#selectTargetLang .selected').innerText = element.innerText;
+				}
+			}
+
+			// 현재 드롭다운에서 다른 항목의 선택 상태 제거
+			const currentDropdown = type === 'source' ? document.querySelectorAll('#sourceLangDropdown li') : document.querySelectorAll('#targetLangDropdown li');
+			currentDropdown.forEach(item => {
+				if (item !== element) {
+					item.classList.remove('selected');
+				}
+			});
+
+			// 현재 선택된 항목에 스타일 적용
+			element.classList.add('selected');
+
+			// 감지된 언어 처리 함수 호출
+			handleDetectedLanguage(document.getElementById('sourceLang').value);
+
+			// 드롭다운 닫기
+			toggleDropdown(type === 'source' ? 'sourceLangDropdown' : 'targetLangDropdown');
+		}
+
+		// 로드 완료 시 실행
+		document.addEventListener('DOMContentLoaded', function() {
+			// 기본 언어 설정 강제 선택
+			const initialSourceLang = 'auto';
+			const initialTargetLang = 'ko';
+
+			// 소스 언어 초기 선택
+			const sourceItems = document.querySelectorAll('#sourceLangDropdown li');
+			sourceItems.forEach(item => {
+				if(item.textContent === languageCodeMap[initialSourceLang]) {
+					item.click(); // 가상 클릭 이벤트 트리거
+				}
+			});
+
+			// 타겟 언어 초기 선택
+			const targetItems = document.querySelectorAll('#targetLangDropdown li');
+			targetItems.forEach(item => {
+				if(item.textContent === languageCodeMap[initialTargetLang]) {
+					item.click(); // 가상 클릭 이벤트 트리거
+				}
+			});
+
+			// 500ms 후 중복 검사 재실행 (렌더링 지연 대응)
+			setTimeout(() => {
+				const currentSource = document.getElementById('sourceLang').value;
+				const currentTarget = document.getElementById('targetLang').value;
+				validateLanguageConflict(currentSource, currentTarget);
+			}, 500);
+		});
+
+		// 언어 충돌 검증 함수
+		function validateLanguageConflict(sourceLang, targetLang) {
+			const allItems = document.querySelectorAll('.dropdown li');
+
+			// 모든 항목 활성화
+			allItems.forEach(item => item.classList.remove('disabled'));
+
+			// 소스 ↔ 타겟 언어 동일 시 비활성화
+			if(sourceLang !== 'auto') {
+				const conflictItem = [...allItems].find(item => 
+					item.textContent === languageCodeMap[targetLang]
+				);
+				if(conflictItem) conflictItem.classList.add('disabled');
+			}
+
+			// 타겟 언어와 충돌하는 소스 항목 비활성화
+			const sourceConflict = [...allItems].find(item => 
+				item.textContent === languageCodeMap[sourceLang]
+			);
+			if(sourceConflict) sourceConflict.classList.add('disabled');
+		}
+
+		// 언어 감지 캐시 저장소 (Map 객체 사용)
+		const langDetectionCache = new Map();
+		const CACHE_TTL = 5 * 60 * 1000; // 5분 캐시 유지
+
+		// 언어 감지 함수
+		async function detectLanguage(text) {
+			const trimmedText = text.trim();
+			if (!trimmedText) return { code: 'auto', name: '자동감지', bcp47: 'auto' };
+
+			// 정확한 캐시 키 생성 (해시 포함)
+			const cacheKey = `${trimmedText.substring(0,50)}_${trimmedText.length}_${hashString(trimmedText)}`;
+
+			// 캐시 체크
+			if (langDetectionCache.has(cacheKey)) {
+				const result = langDetectionCache.get(cacheKey);
+				handleDetectedLanguage(result.code);
+				// UI 업데이트
+				document.getElementById('sourceLang').value = result.code;
+				document.querySelector('#selectSourceLang .selected').textContent = result.name;
+				return result;
+			}
+
+			try {
+				const controller = new AbortController();
+				const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+				const response = await fetch(`https://dev.chatbaram.com:9000/lang_detect`, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ INPUT_TEXT: trimmedText }),
+					signal: controller.signal
+				});
+				clearTimeout(timeoutId);
+
+				const result = await response.json();
+				const langCode = result || 'unknown';
+				const finalLangCode = languageCodeMap[langCode] ? langCode : 'unknown'; // 일치하지 않으면 'unknown'으로 설정
+
+				const finalResult = {
+					code: finalLangCode,
+					name: languageCodeMap[langCode] || '자동감지',
+					bcp47: languageCodeToBCP47[langCode] || 'auto'
+				};
+
+				// 캐시 저장
+				langDetectionCache.set(cacheKey, finalResult);
+				setTimeout(() => langDetectionCache.delete(cacheKey), CACHE_TTL);
+
+				// 감지된 언어 처리
+				lastDetectedCode = finalResult.code; // 최근 감지 언어 저장
+				handleDetectedLanguage(finalResult.code);
+				// UI 업데이트
+				document.getElementById('sourceLang').value = finalResult.code;
+				document.querySelector('#selectSourceLang .selected').textContent = finalResult.name;
+
+				return finalResult;
+
+			} catch (error) {
+				console.error('감지 오류:', error);
+				// 브라우저 언어로 대체
+				const browserLang = navigator.language?.slice(0,2) || 'en';
+				return {
+					code: browserLang,
+					name: languageCodeMap[browserLang] || '영어',
+					bcp47: languageCodeToBCP47[browserLang] || 'en-US'
+				};
+			}
+		}
+
+		// 해시 생성 함수
+		function hashString(str) {
+			let hash = 0;
+			for (let i = 0; i < str.length; i++) {
+				hash = Math.imul(31, hash) + str.charCodeAt(i) | 0;
+			}
+			return hash;
+		}
+
+		// 마지막으로 감지된 언어 코드 저장
+		let lastDetectedCode = null;
+
+		// 타겟 언어 변경 시 재검사
+		document.getElementById('targetLang').addEventListener('change', async () => {
+			const sourceText = document.getElementById('sourceText').value.trim();
+
+			if (sourceText) {
+				// 캐시 무효화 로직
+				const cacheKey = `${sourceText.substring(0,50)}_${sourceText.length}_${hashString(sourceText)}`;
+				langDetectionCache.delete(cacheKey); // 캐시 삭제
+
+				// UI 상태 초기화
+				document.getElementById('targetText').value = '';
+				document.getElementById('translateBtn').disabled = false;
+
+				// 언어 재감지 실행
+				await detectLanguage(sourceText);
+			}
+		});
+
+		// 감지된 언어 처리 함수
+		function handleDetectedLanguage(detectedCode) {
+			let newTargetLang;
+			const currentTargetLang = document.getElementById('targetLang').value;
+
+			// 감지된 언어가 한국어인 경우
+			if (detectedCode === 'ko') {
+				newTargetLang = 'en'; // 한국어가 감지되면 영어로 설정
+			} else {
+				// 감지된 언어가 타겟 언어와 동일하다면 한국어로 설정
+				newTargetLang = (detectedCode === currentTargetLang) ? 'ko' : currentTargetLang;
+			}
+
+			// 대상 언어 업데이트
+			document.getElementById('targetLang').value = newTargetLang;
+
+			// UI 표시 업데이트
+			const targetSelector = document.querySelector('#selectTargetLang .selected');
+			targetSelector.textContent = languageCodeMap[newTargetLang];
+			const sourceSelector = document.querySelector('#selectSourceLang .selected');
+			sourceSelector.textContent = languageCodeMap[detectedCode] || '자동감지';
+
+			// 드롭다운 목록 선택 상태 업데이트
+			document.querySelectorAll('#targetLangDropdown li').forEach(li => {
+				li.classList.toggle('selected', li.textContent === languageCodeMap[newTargetLang]);
+			});
+			document.querySelectorAll('#sourceLangDropdown li').forEach(li => {
+				li.classList.toggle('selected', li.textContent === languageCodeMap[detectedCode]);
+			});
+		}
+
+
+		// UI 업데이트 함수
+		function updateSourceLanguageUI(detectedLang) {
+			// 숨겨진 입력 값 업데이트
+			const sourceLangInput = document.getElementById('sourceLang');
+			sourceLangInput.value = detectedLang.code; // 숨겨진 값 업데이트
+			const displayElement = document.querySelector('#selectSourceLang .selected');
+			
+			// 표시 텍스트 업데이트
+			displayElement.textContent = detectedLang.name;  
+
+			// 드롭다운 항목의 선택 상태 업데이트
+			const dropdownItems = document.querySelectorAll('#sourceLangDropdown li');
+			dropdownItems.forEach(item => {
+				item.classList.remove('selected'); // 모든 선택 상태 제거
+				if (item.textContent === detectedLang.name) {
+					item.classList.add('selected'); // 감지된 언어 선택 상태 추가
+				}
+			});
+			console.log(detectedLang.name);
+			// 언어 선택 부분과 동기화
+			const allItems = document.querySelectorAll(`#sourceLangDropdown li, #targetLangDropdown li`);
+			allItems.forEach(item => {
+				item.classList.remove('disabled'); // 모든 항목의 비활성화 상태 제거
+			});
+
+			// 타겟 언어와 동일한 항목 비활성화
+			const selectedTargetLang = document.getElementById('targetLang').value;
+			if (selectedTargetLang) {
+				const disabledItem = Array.from(allItems).find(item => item.innerText === languageCodeMap[selectedTargetLang]);
+				if (disabledItem) {
+					disabledItem.classList.add('disabled'); // 타겟 언어 비활성화
+				}
+			}
+		}
+
+		// 로그
+		function saveTranslationLog(logData) {
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', './learn_translation_add.php', true);
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			
+			// 데이터 인코딩
+			var params = [
+				'log_type=' + encodeURIComponent(logData.type),
+				'input_meta=' + encodeURIComponent(logData.inputMeta),
+				'output_meta=' + encodeURIComponent(logData.outputMeta),
+				'input_content=' + encodeURIComponent(logData.inputText),
+				'output_content=' + encodeURIComponent(logData.outputText),
+				'mb_id=' + encodeURIComponent(logData.userId),
+				'mb_name=' + encodeURIComponent(logData.userName),
+				'chat_bot_id=' + encodeURIComponent(logData.chat_bot_id)
+			].join('&');
+
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4) {
+					try {
+						var response = JSON.parse(xhr.responseText);
+						if (!response.success) {
+							console.error('로그 저장 실패:', response.error);
+						}
+					} catch(e) {
+						console.error('응답 파싱 오류:', e);
+					}
+				}
+			};
+			
+			xhr.send(params);
+		}
+
+		// fetch 요청 래퍼 함수, 최대 3회 재시도(300ms → 600ms → 1200ms)
+		async function fetchWithRetry(url, options, retries = 3, backoff = 300) {
+			try {
+				const response = await fetch(url, options);
+				if (!response.ok) throw new Error(`HTTP ${response.status}`);
+				return response;
+			} catch (error) {
+				if (retries > 0) {
+					console.log(`재시도 남은 횟수: ${retries}`);
+					await new Promise(resolve => setTimeout(resolve, backoff));
+					return fetchWithRetry(url, options, retries - 1, backoff * 2);
+				}
+				throw error;
+			}
+		}
+
+		// 번역하기
+		let isTranslating = false;
+		async function translate() {
+			const sourceTextEl = document.getElementById('sourceText');
+			const targetTextEl = document.getElementById('targetText');
+			let sourceLang = document.getElementById('sourceLang').value;
+			let targetLang = document.getElementById('targetLang').value;
+
+			let inputText = sourceTextEl.value.trim();
+			let detectedLang = sourceLang;
+
+			if (!inputText) {
+				targetTextEl.value = '';
+				adjustFontSize(targetTextEl, 'charCount2');
+				return;
+			}
+
+			if (isTranslating) {
+				console.log('이미 번역 중입니다.');
+				return;
+			}
+
+			isTranslating = true;
+			const translateBtn = document.getElementById('translateBtn');
+			translateBtn.disabled = true;
+			translateBtn.textContent = '번역 중...';
+
+			try {
+				// 언어 자동 감지
+				if (sourceLang === 'auto') {
+					const detection = await detectLanguage(inputText);
+					detectedLang = detection.code;
+					document.getElementById('sourceLang').value = detectedLang;
+
+					// 언어 감지 후 targetLang 값이 변경되었을 수 있으므로 다시 가져옴
+					targetLang = document.getElementById('targetLang').value;
+				}
+
+				// 번역 요청
+				const payload = {
+					text: inputText,
+					source_lang: sourceLang === 'auto' ? detectedLang : sourceLang,
+					target_lang: targetLang,
+					db_name: 'dev_user',
+					chat_bot_id: '69621793-a510-4e5c-90f2-afb4a0b0b623'
+				};
+
+				const response = await fetchWithRetry(`https://dev.chatbaram.com:9000/ai_trans`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'X-Requested-With': 'XMLHttpRequest'
+					},
+					body: JSON.stringify(payload)
+				});
+
+				// 스트림 처리
+				const reader = response.body.getReader();
+				const decoder = new TextDecoder();
+				let buffer = '';
+				let accumulatedAnswer = '';
+
+				while (true) {
+					const { done, value } = await reader.read();
+					if (done) break;
+
+					buffer += decoder.decode(value, { stream: true });
+					const events = buffer.split('\n\n');
+					buffer = events.pop() || '';
+
+					for (const event of events) {
+						const match = event.match(/^data: (.*)/);
+						if (match) {
+							try {
+								const data = JSON.parse(match[1]);
+								if (data.answer) {
+									accumulatedAnswer += data.answer;
+									targetTextEl.value = accumulatedAnswer;
+									adjustFontSize(targetTextEl, 'charCount2');
+									targetTextEl.scrollTop = targetTextEl.scrollHeight;
+								}
+							} catch (e) {
+								console.error('파싱 오류:', e);
+							}
+						}
+					}
+				}
+
+				// 음성 버튼 활성화
+				updateSpeechButtons();
+
+				// 성공 시 로그 저장
+				if (accumulatedAnswer) {
+					saveTranslationLog({
+						type: 'text',
+						inputMeta: `${detectedLang}`,
+						outputMeta: `${targetLang}`,
+						inputText: inputText,
+						outputText: accumulatedAnswer,
+						userId: 'asadal',
+						userName: '아사달',
+						chat_bot_id: '69621793-a510-4e5c-90f2-afb4a0b0b623',
+					});
+				}
+
+			} catch (error) {
+				console.error('번역 오류:', error);
+				targetTextEl.value = '⚠️ 실시간 번역 중 오류 발생';
+				adjustFontSize(targetTextEl, 'charCount2');
+			} finally {
+				isTranslating = false;
+				translateBtn.disabled = false;
+				translateBtn.textContent = '번역하기';
+			}
+		}
+
+		// 음성 지원 여부 체크
+		let synth = null;
+		let currentUtterance = null;
+
+		if ('speechSynthesis' in window) {
+			synth = window.speechSynthesis;
+		} else {
+			console.error('이 브라우저는 음성 합성을 지원하지 않습니다');
+			document.querySelectorAll('.speak-btn, .stop-btn').forEach(btn => btn.disabled = true);
+		}
+
+		// 음성 제어 상태 객체
+		const speechControl = {
+			source: {
+				state: 'stopped',  // stopped, playing, paused
+				volume: 1,
+				utterance: null,
+				text: '',         // 현재 재생 중인 텍스트
+				charIndex: 0      // 현재 재생 위치
+			},
+			target: {
+				state: 'stopped',
+				volume: 1,
+				utterance: null,
+				text: '',
+				charIndex: 0
+			}
+		};
+
+		// 음성 제어 함수
+		function controlSpeech(action, textAreaId) {
+			if (!synth) {
+				alert("이 브라우저는 음성 합성을 지원하지 않습니다");
+				return;
+			}
+			
+			const currentArea = textAreaId === 'sourceText' ? 'source' : 'target';
+			const otherArea = currentArea === 'source' ? 'target' : 'source';
+			
+			// 현재 상태 확인
+			const currentState = speechControl[currentArea].state;
+			
+			switch (action) {
+				case 'play':
+					if (currentState === 'paused') {
+						// 일시 정지 상태에서 재생 시 이어서 재생
+						try {
+							synth.resume();
+							speechControl[currentArea].state = 'playing';
+						} catch (error) {
+							console.error('재개 오류:', error);
+							// 오류 발생 시 처음부터 다시 시작
+							startPlayback(currentArea, textAreaId);
+						}
+					} else {
+						// 다른 영역의 음성이 재생 중이면 완전히 정지
+						synth.cancel();
+						speechControl.source.state = 'stopped';
+						speechControl.target.state = 'stopped';
+						
+						// 약간의 지연 후 새로운 재생 시작
+						setTimeout(() => {
+							startPlayback(currentArea, textAreaId);
+						}, 200);
+					}
+					break;
+					
+				case 'pause':
+					if (currentState === 'playing') {
+						try {
+							synth.pause();
+							speechControl[currentArea].state = 'paused';
+						} catch (error) {
+							console.error('일시정지 오류:', error);
+							stopSpeech(currentArea);
+						}
+					}
+					break;
+					
+				case 'stop':
+					stopSpeech(currentArea);
+					break;
+			}
+			
+			updateSpeechButtons();
+		}
+
+		// 재생 시작을 위한 별도 함수
+		function startPlayback(area, textAreaId) {
+			try {
+				const text = document.getElementById(textAreaId).value.trim();
+				if (!text) return;
+				
+				// 새 음성 생성
+				const utterance = new SpeechSynthesisUtterance(text);
+				utterance.lang = getLanguageCode(textAreaId);
+				utterance.volume = speechControl[area].volume;
+				utterance.rate = 1;
+				
+				// 현재 텍스트와 위치 저장
+				speechControl[area].text = text;
+				
+				// 이벤트 핸들러 추가
+				utterance.onstart = () => {
+					speechControl[area].state = 'playing';
+					updateSpeechButtons();
+				};
+				
+				utterance.onend = () => {
+					speechControl[area].state = 'stopped';
+					speechControl[area].utterance = null;
+					speechControl[area].charIndex = 0;
+					updateSpeechButtons();
+				};
+				
+				utterance.onboundary = (event) => {
+					speechControl[area].charIndex = event.charIndex;
+				};
+				
+				utterance.onerror = (event) => {
+					//console.error('음성 오류:', event);
+					stopSpeech(area);
+					if (event.error !== 'interrupted') {
+						//showErrorToast('음성 재생 중 오류가 발생했습니다. 다시 시도해주세요.');
+					}
+				};
+				
+				// 상태 업데이트
+				speechControl[area].utterance = utterance;
+				speechControl[area].state = 'playing';
+				
+				// 재생 시작
+				synth.speak(utterance);
+				
+			} catch (error) {
+				console.error('재생 시작 오류:', error);
+				stopSpeech(area);
+				//showErrorToast('음성 재생을 시작할 수 없습니다. 다시 시도해주세요.');
+			}
+		}
+
+		// 오류 메시지 표시 함수
+		function showErrorToast(message) {
+			const toast = document.createElement('div');
+			toast.className = 'volume-toast';
+			toast.style.background = '#ff3b30';
+			toast.textContent = message;
+			document.body.appendChild(toast);
+			setTimeout(() => toast.remove(), 3000);
+		}
+
+		// 음성 정지 함수
+		function stopSpeech(area) {
+			if (!synth) return;
+			
+			try {
+				synth.cancel();
+				// 모든 영역의 상태 초기화
+				speechControl.source.state = 'stopped';
+				speechControl.target.state = 'stopped';
+				speechControl.source.utterance = null;
+				speechControl.target.utterance = null;
+				updateSpeechButtons();
+			} catch (error) {
+				console.error('정지 오류:', error);
+				// 오류 발생 시에도 상태 초기화
+				speechControl.source.state = 'stopped';
+				speechControl.target.state = 'stopped';
+				speechControl.source.utterance = null;
+				speechControl.target.utterance = null;
+				updateSpeechButtons();
+			}
+		}
+
+		// 볼륨 변경 시 토스트 메시지 표시
+		function showVolumeToast(volume) {
+			const toast = document.createElement('div');
+			toast.className = 'volume-toast';
+			toast.textContent = `볼륨: ${Math.round(volume * 100)}%`;
+			document.body.appendChild(toast);
+
+			// 1초 후 자동 제거
+			setTimeout(() => toast.remove(), 1000);
+		}
+
+		// 볼륨 제어 초기화
+		function initVolumeControls() {
+			document.querySelectorAll('.volume-slider').forEach(slider => {
+				const area = slider.dataset.area;
+				
+				// 볼륨 초기값 설정
+				slider.value = speechControl[area].volume;
+				
+				slider.addEventListener('input', (e) => {
+					const newVolume = parseFloat(e.target.value);
+					speechControl[area].volume = newVolume;
+					
+					// 토스트 메시지 표시
+					showVolumeToast(newVolume);
+
+					// 음성 출력 재시작 (Web Speech API 특성상 재시작 필요)
+					if (speechControl[area].state === 'playing') {
+						// 현재 재생 중인 텍스트 저장
+						const textArea = document.getElementById(area === 'source' ? 'sourceText' : 'targetText');
+						const currentText = textArea.value;
+						const currentPosition = speechControl[area].utterance ? 
+							Math.floor(currentText.length * (synth.speaking ? 0.5 : 1)) : 0;
+
+						// 재생 중이면 중단 후 재시작
+						stopSpeech(area);
+						
+						// 새로운 설정으로 재시작
+						const utterance = new SpeechSynthesisUtterance(currentText);
+						utterance.lang = getLanguageCode(area === 'source' ? 'sourceText' : 'targetText');
+						utterance.volume = newVolume;
+						utterance.rate = 1;
+
+						speechControl[area].utterance = utterance;
+						speechControl[area].state = 'playing';
+						synth.speak(utterance);
+						updateSpeechButtons();
+					}
+				});
+			});
+		}
+
+		// 페이지 가시성 변경 시 처리
+		document.addEventListener('visibilitychange', () => {
+			if (document.visibilityState === 'hidden') {
+				// 모든 영역 정지
+				stopSpeech('source');
+				stopSpeech('target');
+			}
+		});
+
+		// 페이지 언로드 시 처리
+		window.addEventListener('beforeunload', () => {
+			stopSpeech('source');
+			stopSpeech('target');
+		});
+
+		// 버튼 상태 업데이트
+		function updateSpeechButtons() {
+			document.querySelectorAll('.button-group').forEach(group => {
+				const container = group.closest('.text-boxes > div');
+				if (!container) return;
+				
+				const textarea = container.querySelector('textarea');
+				if (!textarea) return;
+				
+				const area = textarea.id === 'sourceText' ? 'source' : 'target';
+				const state = speechControl[area].state;
+				const hasText = textarea.value.trim().length > 0;
+				
+				// 재생 버튼
+				const playBtn = group.querySelector('.speak-btn');
+				if (playBtn) {
+					playBtn.disabled = !hasText;
+					playBtn.style.opacity = hasText ? '1' : '0.5';
+				}
+				
+				// 일시정지 버튼
+				const pauseBtn = group.querySelector('.stop-btn[onclick*="pause"]');
+				if (pauseBtn) {
+					pauseBtn.disabled = state === 'stopped';
+					pauseBtn.style.opacity = state === 'stopped' ? '0.5' : '1';
+				}
+				
+				// 정지 버튼
+				const stopBtn = group.querySelector('.stop-btn[onclick*="stop"]');
+				if (stopBtn) {
+					stopBtn.disabled = state === 'stopped';
+					stopBtn.style.opacity = state === 'stopped' ? '0.5' : '1';
+				}
+			});
+		}
+
+		// 언어 코드 가져오기
+		function getLanguageCode(textAreaId) {
+			const lang = document.getElementById(textAreaId === 'sourceText' ? 'sourceLang' : 'targetLang').value;
+			const bcpCode = languageCodeToBCP47[lang] || 'en-US';
+
+			// 사용 가능한 음성 중 가장 적합한 음성 선택
+			const voices = synth.getVoices();
+			const matchingVoice = voices.find(voice => 
+				voice.lang === bcpCode || voice.lang.startsWith(lang)
+			);
+
+			return matchingVoice ? matchingVoice.lang : 'en-US';
+		}
+
+		// 언어 전환 기능
+		function swapLanguages() {
+			const sourceLang = document.getElementById('sourceLang'); // 소스 언어 선택
+			const targetLang = document.getElementById('targetLang'); // 타겟 언어 선택
+
+			// 음성 중지
+			stopSpeech();
+
+			// 언어 옵션 교환
+			[sourceLang.value, targetLang.value] = [targetLang.value, sourceLang.value];
+
+			// 텍스트 상자 내용 교환
+			const sourceTextArea = document.getElementById('sourceText'); // 소스 텍스트 상자
+			const targetTextArea = document.getElementById('targetText'); // 타겟 텍스트 상자
+			[sourceTextArea.value, targetTextArea.value] = [targetTextArea.value, sourceTextArea.value];
+
+			// 표시된 텍스트 업데이트
+			const sourceLangDisplay = document.querySelector('#selectSourceLang .selected'); // 소스 언어 표시
+			const targetLangDisplay = document.querySelector('#selectTargetLang .selected'); // 타겟 언어 표시
+			[sourceLangDisplay.innerText, targetLangDisplay.innerText] =
+				[languageCodeMap[sourceLang.value], languageCodeMap[targetLang.value]]; // 현재 언어 이름으로 업데이트
+
+			// 드롭다운의 선택 상태 업데이트
+			const sourceDropdownItems = document.querySelectorAll('#sourceLangDropdown li'); // 소스 드롭다운 항목
+			const targetDropdownItems = document.querySelectorAll('#targetLangDropdown li'); // 타겟 드롭다운 항목
+
+			sourceDropdownItems.forEach(item => {
+				item.classList.remove('selected'); // 모든 항목의 선택 상태 제거
+				if (item.innerText === languageCodeMap[sourceLang.value]) {
+					item.classList.add('selected'); // 현재 소스 언어 선택 상태 추가
+				}
+			});
+
+			targetDropdownItems.forEach(item => {
+				item.classList.remove('selected'); // 모든 항목의 선택 상태 제거
+				if (item.innerText === languageCodeMap[targetLang.value]) {
+					item.classList.add('selected'); // 현재 타겟 언어 선택 상태 추가
+				}
+			});
+
+			// 글자 수 업데이트
+			//document.getElementById('charCount').textContent = sourceTextArea.value.length; // 소스 텍스트 글자 수 업데이트
+			//document.getElementById('charCount2').textContent = targetTextArea.value.length; // 타겟 텍스트 글자 수 업데이트
+
+
+			// 텍스트 상자의 글꼴 크기 및 높이 조정
+			adjustFontSize(sourceTextArea, 'charCount');
+			adjustFontSize(targetTextArea, 'charCount2');
+
+			// 소스 텍스트 상자에 내용이 있는 경우 언어 재감지
+			if (sourceTextArea.value.trim()) {
+				detectLanguage(sourceTextArea.value.trim());
+			}
+		}
+
+		// 복사 기능
+		function copyText(elementId) {
+			const element = document.getElementById(elementId);
+			element.select();
+			document.execCommand('copy');
+			
+			// 복사 완료 메시지 표시
+			const toast = document.createElement('div');
+			toast.className = 'volume-toast';
+			toast.textContent = '복사되었습니다.';
+			document.body.appendChild(toast);
+			
+			// 1초 후 메시지 제거
+			setTimeout(() => {
+				document.body.removeChild(toast);
+			}, 1000);
+		}
+
+		// 글자수 통계 및 폰트 크기 조정
+		function adjustFontSize(textArea, charCountId) {
+			const text = textArea.value;
+			const charCount = countCharacters(text);
+
+			// 글자수 업데이트
+			const charCountElement = document.getElementById(charCountId);  
+			if (charCountElement) {  
+				charCountElement.textContent = charCount;  
+			} else {  
+				console.error(`Element with id '${charCountId}' not found.`);  
+			}
+
+			// 글자수에 따라 폰트 크기 조정
+			if (charCount > 40) {
+				textArea.style.fontSize = '15px';
+			} else {
+				textArea.style.fontSize = ''; // 기본 폰트 크기로 복원
+			}
+
+			// 자동 높이 조정
+			textArea.style.height = 'auto';
+			textArea.style.height = textArea.scrollHeight + 'px';
+		}
+
+		// 글자수 통계 (한국어 및 중국어 기준)
+		function countCharacters(text) {
+			// 한국어 문자 범위: [\uAC00-\uD7AF]
+			const koreanCharCount = (text.match(/[\uAC00-\uD7AF]/g) || []).length;
+
+			// 중국어 문자 범위: [\u4E00-\u9FFF]
+			const chineseCharCount = (text.match(/[\u4E00-\u9FFF]/g) || []).length;
+
+			// 영문 문자 범위: [a-zA-Z]
+			const englishCharCount = (text.match(/[a-zA-Z]/g) || []).length;
+
+			// 기타 문자 (공백, 특수문자, 줄바꿈 등)
+			const otherCharCount = text.replace(/[\uAC00-\uD7AF\u4E00-\u9FFFa-zA-Z]/g, '').length;
+
+			// 통계 규칙:
+			// 한국어 문자: 1글자
+			// 중국어 문자: 1글자
+			// 영문 문자: 0.5글자
+			// 기타 문자: 0.5글자
+			return Math.floor(koreanCharCount + chineseCharCount + englishCharCount * 0.5 + otherCharCount * 0.5);
+		}
+
+		// 입력 이벤트 핸들러
+		let debounceTimeout;
+		let abortController;
+
+		const sourceTextArea = document.getElementById('sourceText');
+
+		['input', 'paste', 'drop'].forEach(event => {
+			sourceTextArea.addEventListener(event, function(e) {
+				abortController?.abort(); // 진행 중인 요청 중단
+				clearTimeout(debounceTimeout);
+
+				const isPaste = e.type === 'paste' || !!e.clipboardData;
+				const debounceTime = isPaste ? 500 : 1000; // 붙여넣기는 더 빠른 응답
+
+				debounceTimeout = setTimeout(async () => {
+					const text = this.value.trim();
+					if (!text) {
+						document.getElementById('targetText').value = '';
+						adjustFontSize(document.getElementById('targetText'), 'charCount2');
+						return;
+					}
+
+					try {
+						abortController = new AbortController();
+						// 먼저 언어 감지 수행
+						const detection = await detectLanguage(text);
+						// 감지된 언어에 따라 targetLang이 handleDetectedLanguage에서 업데이트됨
+						
+						// 언어 감지 후 번역 실행
+						await translate();
+					} catch (error) {
+						console.error('처리 실패:', error);
+					}
+				}, debounceTime);
+			});
+		});
+
+		// 전체 선택 붙여넣기 처리
+		sourceTextArea.addEventListener('select', function() {
+			this.dataset.fullSelected = this.selectionStart === 0 && this.selectionEnd === this.value.length;
+		});
+
+		sourceTextArea.addEventListener('paste', function(e) {
+			if (this.dataset.fullSelected === 'true') {
+				langDetectionCache.clear(); // 기존 캐시 초기화
+				this.value = '';
+				// 강제로 입력 이벤트 발생
+				const event = new Event('input', { bubbles: true });
+				this.dispatchEvent(event);
+			}
+		});
+
+		// 번역 버튼 클릭 이벤트 추가 (수동 번역용으로 유지)
+		document.getElementById('translateBtn').addEventListener('click', function () {
+			translate(); // 번역 실행
+			this.disabled = true;
+			setTimeout(() => this.disabled = false, 3000); // 3초간 추가 클릭 방지
+		});
+
+		// 초기화: 입력 상자에 입력 이벤트 리스너 추가
+		document.getElementById('sourceText').addEventListener('input', function () {
+			adjustFontSize(this, 'charCount'); // sourceText 문자 수 통계
+		});
+
+		document.getElementById('targetText').addEventListener('input', function () {
+			adjustFontSize(this, 'charCount2'); // targetText 문자 수 통계
+		});
+
+		// TTS 초기화
+		document.addEventListener('DOMContentLoaded', () => {
+			populateLanguageDropdowns();
+			initVolumeControls();
+			updateSpeechButtons();
+
+			// textarea 값 변경 시 버튼 상태 업데이트
+			['sourceText', 'targetText'].forEach(id => {
+				const textarea = document.getElementById(id);
+				textarea.addEventListener('input', () => {
+					updateSpeechButtons();
+				});
+			});
+		});
+
+		// 새로 고침
+		document.getElementById("refreshLink").onclick = function(event) {
+			event.preventDefault();
+			location.reload();
+		};
+	</script>
+	<!-- E -->
+</div>
+
+<!-- chat E -->
+
+		</td></tr>
+			<table width=100% cellpadding=0 cellspacing=0 border=0>
+		<tr height=20>
+			<td width=161></td>
+			<td></td>
+			<td align=right colspan=2><a href='#top'><img src='/~AsaProgram_chatty/asapro2/admin/image/top.gif' border=0></a>&nbsp;&nbsp;&nbsp;</td></tr>
+		</table></td></tr>
+	
+<table width=100% cellpadding=0 cellspacing=0 border=0>
+<!-- <tr>
+	<td height=27 align=center class=copyright background="/~AsaProgram_chatty/asapro2/admin/image/copyright.gif">Copyright ⓒ tms.han.kr All rights reserved.	</td></tr> -->
+<tr>
+	<td height=27 align=center class=copyright background="/~AsaProgram_chatty/asapro2/admin/image/copyright.gif">Copyright ⓒ dev.han.kr All rights reserved.
+	</td></tr>
+</table>
+</body>
+</html>
+
+
+

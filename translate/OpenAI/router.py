@@ -3,12 +3,14 @@ from fastapi.responses import JSONResponse
 from translate.OpenAI.translate_service import setup_translation_chain
 from schemas.translate_schema import TranslateRequest, TranslateResponse
 import logging
+import time
 
 logger = logging.getLogger(__name__)
 translate_router = APIRouter(prefix="/translate")
 
 @translate_router.post("/OpenAI", tags=["Text-Translation"])
 async def translate(request: TranslateRequest):
+    start_time = time.time()  # 시작 시간 기록
 
     try:
         print("❇️ Request : ",request)
@@ -22,6 +24,10 @@ async def translate(request: TranslateRequest):
         })
 
         print("✅ Response : ",response)
+
+        end_time = time.time()  # 종료 시간 기록
+        latency = (end_time - start_time) * 1000  # 밀리초 단위로 변환
+        print(f"OpenAI 실행 시간: {latency:.2f}ms")
 
         return TranslateResponse(answer=response)
     

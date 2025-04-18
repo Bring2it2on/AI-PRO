@@ -68,7 +68,7 @@ def setup_translation_chain():
     )
 
     # OpenAI LLM 모델 설정 (gpt-4o-mini 사용)
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.5)
+    llm = ChatOpenAI(model="gpt-4.1-mini", temperature=0.0)
 
     # 체인 설정
     chain = (
