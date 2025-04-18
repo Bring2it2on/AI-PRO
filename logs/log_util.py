@@ -7,7 +7,7 @@ import os
 import threading
 
 
-logging.basicConfig(filename="execution_log.txt", level=logging.INFO, format="%(asctime)s - %(message)s")
+logging.basicConfig(filename="execution_log.txt", level=logging.INFO, format="%(asctime)s - %(message)s", encoding="utf-8")
 
 def async_log_function_call(func):
     """비동기 함수에서도 동작하는 비동기 로깅 데코레이터"""
@@ -112,3 +112,6 @@ HTTP_STATUS_MESSAGES = {
 
 # 상태(status) 값 정의
 STATUS_TYPES = ["success", "error", "cancelled", "complete"]
+
+# 로그 파일을 UTF-8로 읽어보는 예시
+log_file_path = 'execution_log.txt'

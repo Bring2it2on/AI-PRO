@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from schemas.translate_schema import LangDetectRequest, LangDetectResponse
 from dotenv import load_dotenv
+
 load_dotenv()
 
 app = FastAPI(title="Translation Service")
@@ -21,11 +22,13 @@ app.add_middleware(
 # 라우터
 from translate.OpenAI.router import translate_router
 from ai_docs.router import document_router
+from TTS.router import TTS_router
 
 # 라우터 등록
 routers = [
     translate_router,
-    document_router
+    document_router,
+    TTS_router
 ]
 
 for router in routers:
