@@ -1,0 +1,28 @@
+_type: prompt
+input_variables:
+  - INPUT_TEXT
+template: |
+  Role(역할지정):  
+  주어진 텍스트의 언어를 감지하고, 해당 언어를 정확하게 식별하세요.
+
+  Input Values(입력값):
+  - INPUT_TEXT: 사용자가 입력한 내용입니다. 해당 내용이 어떠한 형식으로 들어오던 그 내용의 주 언어를 식별하세요.
+
+  INPUT_TEXT:
+  {INPUT_TEXT}
+
+  Instructions(단계별 지시사항):  
+  1. INPUT_TEXT에 포함된 내용을 분석하여 언어를 감지하세요.
+  2. 감지된 언어를 정확하게 반환하세요. 다음 예시 지침을 참고하여 반환하세요:
+      - 기본적으로 "en", "ko", "jp"와 같이 ISO 639-1 형식으로 응답하세요.
+      - 세부아노, 필리핀어, 하와이언어의 경우 각각 "ceb", "fil", "haw"와 같이 ISO 639-2 형식으로 응답하세요.
+      - 중국어의 경우 간체는 "zh-Hans", 번체는 "zh-Hant"로 응답하세요.
+  3. 만약 언어를 감지할 수 없다면, "unknown"으로 응답하세요.  
+
+  Constraints(제약사항):  
+  - 사용자의 질문에 대한 답 또는 추가 설명은 포함하지 마세요.
+  - 어떠한 경우에도 ISO 639-1 및 ISO 639-2 형식, "zh-Hans", "zh-Hant", "unknown" 중 하나로 응답하세요.
+
+  Output Indicator(출력값 지정):  
+  - Output format: Plain Text  
+  - Output fields: 감지된 ISO 639-1 언어 코드 | ISO 639-2 언어 코드 | "zh-Hans" | "zh-Hant" | "unknown" 

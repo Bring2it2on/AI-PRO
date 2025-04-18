@@ -40,7 +40,7 @@ async def lang_detector2(INPUT_TEXT: str):
     start_time = time.time()  # 시작 시간 기록
     
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    prompt_path = os.path.join(current_dir, "..", "prompts", "language_detect.yaml")
+    prompt_path = os.path.join(current_dir, "..", "prompts", "language_detect_v2.yaml")
     
     prompt_text = load_prompt_from_file(prompt_path)
     prompt = PromptTemplate(
@@ -48,7 +48,7 @@ async def lang_detector2(INPUT_TEXT: str):
         input_variables=["INPUT_TEXT"]
     )
     
-    llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.2)
+    llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
     chain = prompt | llm
 
     result = chain.invoke({"INPUT_TEXT": INPUT_TEXT})
