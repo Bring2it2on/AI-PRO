@@ -20,7 +20,7 @@ app.add_middleware(
 # logging.langsmith("AI-Translation")
 
 # 라우터
-from translate.OpenAI.router import translate_router
+from ai_trans.router import translate_router
 from ai_docs.router import document_router
 from TTS.router import TTS_router
 
