@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, UploadFile, File, Form
 from fastapi.responses import StreamingResponse
 import io
 import logging
-from ai_docs.summarize import summarize_file, summarize_combinedTexts, summarize_combined_json, summarize_combined_json_v2
+from ai_docs.summarize import summarize_file, summarize_combinedTexts, summarize_combined_json, summarize_combined_json_v2, summarize_combined_json_v3
 from ai_docs.read_doc import process_file
 import json
 import time
@@ -75,7 +75,7 @@ async def summarize_docs_v2(files: list[UploadFile] = File(...)):
     
     
 @document_router.post(
-"/summarize_latest", tags=["문서 요약"], description=
+"/summarize_v3", tags=["문서 요약"], description=
 """
 ## VERSION_3
 - 프롬프트 수정
@@ -102,7 +102,7 @@ async def summarize_docs_v3(files: list[UploadFile] = File(...)):
         
         end_time = time.time()  # 종료 시간 기록
         latency = (end_time - start_time) * 1000  # 밀리초 단위로 변환
-        print(f"OpenAI 실행 시간: {latency:.2f}ms")
+        print(f"문서요약 소요 시간: {latency:.2f}ms")
 
         # StreamingResponse로 반환
         return StreamingResponse(io.StringIO(summary), media_type="text/plain")
@@ -135,6 +135,49 @@ async def summarize_docs_v4(files: list[UploadFile] = File(...), user_request: s
         
         logger.info(f"✅ 문서요약 완료!")
         
+        # StreamingResponse로 반환
+        return StreamingResponse(io.StringIO(summary), media_type="text/plain")
+    
+    except Exception as e:
+        logger.info(f"문서 요약 중 오류 발생: {e}")
+        raise HTTPException(status_code=500, detail="문서 요약 중 오류가 발생했습니다.")
+
+@document_router.post(
+    "/summarize_latest", tags=["문서 요약"], description=
+    """
+    ## VERSION_5
+    - model, length 파라미터 추가
+    - 각 파일마다 텍스트 추출하여 json 안에 각 document 별로 요약한 내용 반영하여 요약 진행
+    """
+)
+async def summarize_docs_v5(
+    files: list[UploadFile] = File(...),
+    model: str = Form(...),     # 모델 이름
+    length: str = Form(...)    # 요약 길이
+):
+    start_time = time.time()  # 시작 시간 기록           
+    print(f"✅ 모델: {model}, 요약 길이: {length}")
+    try:
+        # 각 파일에 대해 텍스트를 먼저 추출하여 종합한 후 요약을 수행
+        extracted_texts = {}
+        for i, file in enumerate(files):
+            extracted_text = await process_file(file)
+            print(f"✅ 텍스트 추출 완료 : ({i + 1}/{len(files)})")
+            extracted_texts[f'document{i + 1}'] = extracted_text  # JSON 형태로 변환
+
+        # JSON 형태로 변환된 텍스트 출력
+        json_contents = json.dumps(extracted_texts, ensure_ascii=False, indent=4)
+        # print(f"❇️❇️❇️❇️❇️❇️ 종합된 모든 텍스트 (JSON 형태) ❇️❇️❇️❇️❇️❇️\n{json_contents}")
+
+        # model, length 파라미터 활용하여 요약 함수 호출 (필요시 summarize_combined_json 함수 수정)
+        summary = await summarize_combined_json_v3(json_contents, model=model, length=length)
+        
+        logger.info(f"✅ 문서요약 완료!")
+        
+        end_time = time.time()  # 종료 시간 기록
+        latency = (end_time - start_time) * 1000  # 밀리초 단위로 변환
+        print(f"✅ 문서요약 소요 시간: {latency:.2f}ms")
+
         # StreamingResponse로 반환
         return StreamingResponse(io.StringIO(summary), media_type="text/plain")
     
