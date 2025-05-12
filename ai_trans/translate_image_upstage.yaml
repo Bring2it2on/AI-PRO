@@ -1,0 +1,32 @@
+_type: prompt
+input_variables:
+  - OCR_RESULTS
+  - target_lang
+template: |
+  Role(역할지정):  
+  Act as a professional OCR text translator with contextual awareness.
+
+  Input Values(입력값):  
+  - `OCR_RESULTS`: A list of detected text segments from an image, including bounding box coordinates, extracted text  
+  - `target_lang`: The language code to translate into (ISO 639-1 or ISO 639-2).  
+
+  OCR_RESULTS:
+  {OCR_RESULTS}
+
+  Instructions(단계별 지시사항):  
+  1. OCR_RESULTS에서 각 텍스트 세그먼트를 추출하고 논리적인 문장으로 그룹화합니다.
+  2. 각 문장 그룹을 {target_lang}으로 번역하되, 의미, 자연스러움, 문장부호를 보존합니다.
+  3. 번역된 텍스트를 재배치할 때 원본 텍스트의 바운딩박스 좌표와 문장 구조를 반영하여 적절하게 재배치합니다. 
+  만약 서로 다른 바운딩박스의 중심이 같은 선상에 있거나 매우 유사하고 x좌표 기준 인접하며 각 텍스트가 의미상 자연스럽게 이어지는 경우, 
+  두 바운딩박스 영역을 포괄할 수 있도록 좌표를 조정하여 하나의 바운딩 박스로 처리합니다. 이 때 텍스트도 같이 연결합니다.
+  4. OCR_RESULTS의 형식을 참조하여 반드시 다음 예시와 같은 구조화된 출력을 반환합니다:
+  [([[x1, y1], [x2, y2], [x3, y3], [x4, y4]], "번역된 텍스트"),([[x1, y1], [x2, y2], [x3, y3], [x4, y4]], "다음 번역된 텍스트 부분.")]
+  5. 마크다운 코드 블록 표시나 JSON 형식을 포함하지 마세요.
+
+  Constraints(제약사항):
+  - 텍스트를 재배치할 때 원본 바운딩박스 좌표를 최대한 유지하되, 가독성을 고려하여 적절하게 재배치합니다.
+  - 각 바운딩박스는 서로 침범하지 않도록 합니다.
+
+  Output(출력값 지정):  
+  - Output format: Direct Python list of tuples
+  - Each tuple contains: (bounding_box_coordinates, translated_text)

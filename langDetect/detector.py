@@ -9,7 +9,8 @@ def lang_detector(INPUT_TEXT: str):
     start_time = time.time()  # 시작 시간 기록
     
     # Create a LanguageDetector object.
-    base_options = python.BaseOptions(model_asset_path="detector.tflite")
+    model_path = os.path.abspath("detector.tflite")
+    base_options = python.BaseOptions(model_asset_path=model_path)
     options = text.LanguageDetectorOptions(base_options=base_options)
     detector = text.LanguageDetector.create_from_options(options)
 

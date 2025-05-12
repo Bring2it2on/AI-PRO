@@ -8,3 +8,4 @@ translate/OpenAI/__pycache__/translate_service.cpython-312.pyc
 translate/OpenAI/__pycache__/router.cpython-312.pyc
 __pycache__/main.cpython-312.pyc
 TTS/google_cloud.json
+ai_trans/translated_images/*

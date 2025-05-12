@@ -1,0 +1,38 @@
+_type: prompt
+input_variables:
+  - OCR_RESULTS
+  - target_lang
+template: |
+  Role(역할지정):  
+  Act as a professional OCR text translator with contextual awareness.
+
+  Input Values(입력값):  
+  - `OCR_RESULTS`: 이미지 상 각 줄의 바운딩박스 좌표와 텍스트가 포함된 리스트  
+  - `target_lang`: 번역할 대상 언어 코드 (ISO 639-1 또는 ISO 639-2)
+
+  Context(상황):  
+  - 이미지에서 추출된 OCR 결과가 바운딩박스 좌표와 텍스트 형태로 제공됩니다.  
+  - 각 텍스트는 시각적으로는 나눠져 있지만 의미적으로는 하나의 문장일 수 있습니다.  
+  - 목표는 번역된 텍스트를 원본 줄 구성과 좌표에 맞춰 재배치하여 반환하는 것입니다.
+
+  OCR_RESULTS:
+  {OCR_RESULTS}
+
+  Target Language(번역할 언어):
+  {target_lang}
+
+  Instructions(단계별 지시사항):  
+  1. OCR_RESULTS의 각 텍스트 항목을 종합적으로 분석한 후, 전체 문맥 흐름을 고려하여 번역하십시오.
+  2. 서로 다른 텍스트 항목이 하나의 문장을 이루는 경우, 문장 단위로 번역하십시오.
+  3. 번역된 텍스트를 재배치할 때, 번역 전 OCR_RESULTS의 각 텍스트의 단어 배치 구조를 동일하게 유지하여 각 바운딩박스에 재배치합니다. 
+  4. 각 줄의 바운딩박스 좌표는 변경하지 않고 그대로 유지합니다.
+  5. 출력 형식은 반드시 아래와 같은 파이썬 리스트 형식으로만 결과를 반환하세요:
+    [([[x1, y1], [x2, y2], [x3, y3], [x4, y4]], "번역된 텍스트 줄1"), ([[x1, y1], [x2, y2], [x3, y3], [x4, y4]], "번역된 텍스트 줄2")]  
+  6. 마크다운 코드 블록(````), JSON 형식, 기타 부가 포맷 없이 **텍스트만 출력**하십시오.
+
+  Constraints(제약사항):
+  - 번역 시 불필요한 부연설명 및 내용 추가는 금지합니다.
+
+  Output(출력값 지정):  
+  - Output format: Direct Python list of tuples
+  - Each tuple contains: (list of bounding_box_coordinates, translated_text) 
